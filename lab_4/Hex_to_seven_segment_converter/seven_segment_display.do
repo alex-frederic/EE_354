@@ -1,7 +1,7 @@
 
 vlib work
 vlog -sv +acc  "seven_segment_display.v"
-vlog -sv +acc  "seven_segment_display_tb.v"
+vlog -sv +acc  "seven_segment_display_tb_revised.v"
 
 vsim -novopt -t 1ps -lib work seven_segment_display_tb
 #do {seven_segment_display_wave.do}
