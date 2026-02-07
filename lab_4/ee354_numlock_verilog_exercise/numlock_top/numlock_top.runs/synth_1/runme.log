@@ -1,0 +1,282 @@
+
+*** Running vivado
+    with args -log ee354_numlock_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source ee354_numlock_top.tcl
+
+
+
+****** Vivado v2024.1 (64-bit)
+  **** SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+  **** IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+  **** SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+  **** Start of session at: Wed Feb  4 16:16:47 2026
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+
+source ee354_numlock_top.tcl -notrace
+create_project: Time (s): cpu = 00:00:09 ; elapsed = 00:00:09 . Memory (MB): peak = 604.133 ; gain = 198.062
+Command: read_checkpoint -auto_incremental -incremental C:/lab_4/numlock_top/numlock_top.srcs/utils_1/imports/synth_1/ee354_numlock_top.dcp
+INFO: [Vivado 12-5825] Read reference checkpoint from C:/lab_4/numlock_top/numlock_top.srcs/utils_1/imports/synth_1/ee354_numlock_top.dcp for incremental synthesis
+INFO: [Vivado 12-7989] Please ensure there are no constraint changes
+Command: synth_design -top ee354_numlock_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: [Device 21-9227] Part: xc7a100tcsg324-1 does not have CEAM library.
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
+INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
+INFO: [Synth 8-7075] Helper process launched with PID 9728
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1475.863 ; gain = 449.656
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'ee354_numlock_top' [C:/lab_4/ee354_numlock_top_N4.v:15]
+INFO: [Synth 8-6157] synthesizing module 'BUFGP' [C:/Xilinx/Vivado/2024.1/scripts/rt/data/unisim_comp.v:2108]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGP' (0#1) [C:/Xilinx/Vivado/2024.1/scripts/rt/data/unisim_comp.v:2108]
+INFO: [Synth 8-6157] synthesizing module 'ee354_numlock_sm' [C:/lab_4/ee354_numlock_sm.v:15]
+INFO: [Synth 8-6155] done synthesizing module 'ee354_numlock_sm' (0#1) [C:/lab_4/ee354_numlock_sm.v:15]
+INFO: [Synth 8-226] default block is never used [C:/lab_4/ee354_numlock_top_N4.v:298]
+INFO: [Synth 8-6155] done synthesizing module 'ee354_numlock_top' (0#1) [C:/lab_4/ee354_numlock_top_N4.v:15]
+WARNING: [Synth 8-3917] design ee354_numlock_top has port MemOE driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port MemWR driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port RamCS driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port QuadSpiFlashCS driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An7 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An6 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An5 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An4 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port Dp driven by constant 1
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1586.242 ; gain = 560.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1586.242 ; gain = 560.035
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 1586.242 ; gain = 560.035
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1586.242 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/lab_4/ee354_top_N4.xdc]
+Finished Parsing XDC File [C:/lab_4/ee354_top_N4.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/lab_4/ee354_top_N4.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/ee354_numlock_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/ee354_numlock_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1661.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1661.508 ; gain = 0.000
+INFO: [Designutils 20-5440] No compile time benefit to using incremental synthesis; A full resynthesis will be run
+INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental criteria not met. If you would like to alter this behaviour and have the flow terminate instead, please set the following parameter config_implementation {autoIncr.Synth.RejectBehavior Terminate}
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ee354_numlock_sm'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                      QI |                      00000000001 |                      00000000001
+                  QG1get |                      00000000010 |                      00000000010
+                     QG1 |                      00000000100 |                      00000000100
+                 QG10get |                      00000001000 |                      00000001000
+                    QG10 |                      00000010000 |                      00000010000
+                QG101get |                      00000100000 |                      00000100000
+                   QG101 |                      00001000000 |                      00001000000
+               QG1011get |                      00010000000 |                      00010000000
+                  QG1011 |                      00100000000 |                      00100000000
+                QOpening |                      01000000000 |                      01000000000
+                    QBad |                      10000000000 |                      10000000000
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'state_reg' in module 'ee354_numlock_sm'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input    4 Bit       Adders := 1     
+	  11 Input    4 Bit       Adders := 1     
++---Registers : 
+	                4 Bit    Registers := 1     
++---Muxes : 
+	  12 Input   11 Bit        Muxes := 1     
+	   2 Input   11 Bit        Muxes := 3     
+	   2 Input    4 Bit        Muxes := 1     
+	   4 Input    4 Bit        Muxes := 1     
+	   2 Input    1 Bit        Muxes := 2     
+	  12 Input    1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+WARNING: [Synth 8-7080] Parallel synthesis criteria is not met
+WARNING: [Synth 8-3917] design ee354_numlock_top has port MemOE driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port MemWR driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port RamCS driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port QuadSpiFlashCS driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An7 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An6 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An5 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port An4 driven by constant 1
+WARNING: [Synth 8-3917] design ee354_numlock_top has port Dp driven by constant 1
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:20 ; elapsed = 00:00:21 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:27 ; elapsed = 00:00:28 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |     7|
+|2     |LUT1   |     1|
+|3     |LUT2   |     6|
+|4     |LUT3   |     9|
+|5     |LUT4   |     4|
+|6     |LUT5   |     8|
+|7     |LUT6   |    26|
+|8     |FDCE   |    40|
+|9     |FDPE   |     1|
+|10    |BUFGP  |     1|
+|11    |IBUF   |     8|
+|12    |OBUF   |    28|
++------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 10 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1661.508 ; gain = 560.035
+Synthesis Optimization Complete : Time (s): cpu = 00:00:32 ; elapsed = 00:00:34 . Memory (MB): peak = 1661.508 ; gain = 635.301
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1661.508 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 8 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1661.508 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+Synth Design complete | Checksum: 74482cd0
+INFO: [Common 17-83] Releasing license: Synthesis
+33 Infos, 19 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:38 ; elapsed = 00:00:41 . Memory (MB): peak = 1661.508 ; gain = 1052.188
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1661.508 ; gain = 0.000
+INFO: [Common 17-1381] The checkpoint 'C:/lab_4/numlock_top/numlock_top.runs/synth_1/ee354_numlock_top.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file ee354_numlock_top_utilization_synth.rpt -pb ee354_numlock_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Wed Feb  4 16:17:42 2026...

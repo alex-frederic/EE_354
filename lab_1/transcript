@@ -1,0 +1,48 @@
+# Reading C:/questasim64_10.4c/tcl/vsim/pref.tcl
+# //  Questa Sim-64
+# //  Version 10.4c win64 Jul 20 2015
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+project open {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder.mpf}
+# Loading project middle_finder
+do custom_middle_finder_tb_wave.do
+run 30ns
+# No Design Loaded!
+do custom_middle_finder_tb_wave.do
+quit -sim
+do custom_middle_finder.do
+# vsim -gui work.middle_finder_tb -novopt 
+# Start time: 23:48:51 on Jan 12,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Loading work.middle_finder_tb
+# Loading work.middle_finder
+run 30ns
+do custom_middle_finder_tb_wave.do
+quit -sim
+# End time: 23:52:42 on Jan 12,2026, Elapsed time: 0:03:51
+# Errors: 0, Warnings: 1
+quit -sim
+vsim -gui -novopt work.middle_finder_tb
+# vsim -gui -novopt work.middle_finder_tb 
+# Start time: 23:53:05 on Jan 12,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Loading work.middle_finder_tb
+# Loading work.middle_finder
+do custom_middle_finder_tb_wave.do
+run 30ns
+quit
+# End time: 23:54:38 on Jan 12,2026, Elapsed time: 0:01:33
+# Errors: 0, Warnings: 1

@@ -1,0 +1,48 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/Dinkley/Documents/ee370_labs
+vmiddle_finder
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 UUY5^?Q9o`kN[IgJce;;U1
+I_omZ0;Fm3][?3;:aJ55YL3
+Z1 dC:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder
+Z2 w1768288613
+8middle_finder.v
+Fmiddle_finder.v
+L0 10
+Z3 OL;L;10.4c;61
+Z4 !s108 1768290182.000000
+!s107 middle_finder.v|
+!s90 -reportprogress|300|+acc|middle_finder.v|
+!i113 0
+Z5 o+acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vmiddle_finder_tb
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 S@:@L587]B:k2QkPnJflA3
+I=z47GXKWgjNRNZ1Cncc9J0
+R1
+R2
+8middle_finder_tb.v
+Fmiddle_finder_tb.v
+L0 8
+R3
+R4
+!s107 middle_finder_tb.v|
+!s90 -reportprogress|300|+acc|middle_finder_tb.v|
+!i113 0
+R5

@@ -1,0 +1,48 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/WINDOWS/System32
+vparity
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 A?YP0oIAN_Y>lSMAK6djG2
+I3QYZdY4WTFn]ejVKb_EHM2
+Z1 dC:/Users/Dinkley/Documents/ee354_labs/lab_4/Parity_Generator
+w1770105796
+8parity_ones_count.v
+Fparity_ones_count.v
+L0 10
+Z2 OL;L;10.4c;61
+!s108 1770105900.000000
+!s107 parity_ones_count.v|
+!s90 -reportprogress|300|parity_ones_count.v|
+!i113 0
+Z3 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vparity_tb
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 ;^UMjGUojD2L]hVel:Z_l2
+I[ZjkTkPSZ92C4J9mDK>LQ3
+R1
+w1770083950
+8parity_tb.v
+Fparity_tb.v
+L0 11
+R2
+!s108 1770105901.000000
+!s107 parity_tb.v|
+!s90 -reportprogress|300|parity_tb.v|
+!i113 0
+R3

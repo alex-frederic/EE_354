@@ -1,0 +1,48 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/WINDOWS/System32
+vee354_numlock_sm
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 8;;3D8>2lOfIUM1?nObfD2
+I`K>g=GzTO[OmmX4=Q89am0
+Z1 dC:/Users/Dinkley/Documents/ee354_labs/lab_4/ee354_numlock_verilog_exercise/numlock_core
+w1770091902
+8ee354_numlock_sm.v
+Fee354_numlock_sm.v
+L0 15
+Z2 OL;L;10.4c;61
+Z3 !s108 1770103230.000000
+!s107 ee354_numlock_sm.v|
+!s90 -reportprogress|300|+acc|ee354_numlock_sm.v|
+!i113 0
+Z4 o+acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vee354_numlock_sm_tb
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 ^[W`X:>C]6OlaP4VYW7Gk0
+I34Z4?UfVF`dVm@VMGLJT^3
+R1
+w1770089555
+8ee354_numlock_sm_tb.v
+Fee354_numlock_sm_tb.v
+L0 9
+R2
+R3
+!s107 ee354_numlock_sm_tb.v|
+!s90 -reportprogress|300|+acc|ee354_numlock_sm_tb.v|
+!i113 0
+R4

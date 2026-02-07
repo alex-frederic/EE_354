@@ -1,0 +1,37 @@
+{{C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder_tb.v}} {1 {vlog -work work -vopt {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder_tb.v}
+QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+Start time: 23:20:41 on Jan 12,2026
+vlog -reportprogress 300 -work work -vopt C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder_tb.v 
+-- Compiling module middle_finder_tb
+
+Top level modules:
+	middle_finder_tb
+End time: 23:20:41 on Jan 12,2026, Elapsed time: 0:00:00
+Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder_tb.v} {1 {vlog -work work -vopt -stats=none {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder_tb.v}
+QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+-- Compiling module middle_finder_tb
+
+Top level modules:
+	middle_finder_tb
+
+} {} {}} {{C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder.v}} {1 {vlog -work work -vopt {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder.v}
+QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+Start time: 23:20:40 on Jan 12,2026
+vlog -reportprogress 300 -work work -vopt C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder.v 
+-- Compiling module middle_finder
+
+Top level modules:
+	middle_finder
+End time: 23:20:41 on Jan 12,2026, Elapsed time: 0:00:01
+Errors: 0, Warnings: 0
+
+} {} {}} {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder.v} {1 {vlog -work work -vopt -stats=none {C:/Users/Dinkley/Documents/ee370_labs/Lab 1/middle_finder/middle_finder.v}
+QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+-- Compiling module middle_finder
+
+Top level modules:
+	middle_finder
+
+} {} {}}

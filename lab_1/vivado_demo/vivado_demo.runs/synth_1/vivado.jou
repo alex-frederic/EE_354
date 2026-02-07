@@ -1,0 +1,24 @@
+#-----------------------------------------------------------
+# Vivado v2024.1 (64-bit)
+# SW Build 5076996 on Wed May 22 18:37:14 MDT 2024
+# IP Build 5075265 on Wed May 22 21:45:21 MDT 2024
+# SharedData Build 5076995 on Wed May 22 18:29:18 MDT 2024
+# Start of session at: Mon Jan 12 19:43:14 2026
+# Process ID: 120
+# Current directory: Z:/Documents/EE 370 Labs/Lab 1/vivado_demo/vivado_demo.runs/synth_1
+# Command line: vivado.exe -log test_nexysA7_verilog.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source test_nexysA7_verilog.tcl
+# Log file: Z:/Documents/EE 370 Labs/Lab 1/vivado_demo/vivado_demo.runs/synth_1/test_nexysA7_verilog.vds
+# Journal file: Z:/Documents/EE 370 Labs/Lab 1/vivado_demo/vivado_demo.runs/synth_1\vivado.jou
+# Running On        :GDESK-25
+# Platform          :Windows Server 2016 or Windows 10
+# Operating System  :26100
+# Processor Detail  :Intel(R) Xeon(R) Gold 6244 CPU @ 3.60GHz
+# CPU Frequency     :3592 MHz
+# CPU Physical cores:4
+# CPU Logical cores :4
+# Host memory       :34358 MB
+# Swap memory       :2147 MB
+# Total Virtual     :36506 MB
+# Available Virtual :28274 MB
+#-----------------------------------------------------------
+source test_nexysA7_verilog.tcl -notrace
