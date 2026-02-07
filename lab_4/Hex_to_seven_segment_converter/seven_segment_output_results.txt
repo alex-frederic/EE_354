@@ -1,0 +1,145 @@
+Test # = 0 
+Input:   Hex_input = 0 
+Output: Cathode_output = 10000001  
+ __ 
+|  |
+|__|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 1 
+Input:   Hex_input = 1 
+Output: Cathode_output = 11110011  
+    
+   |
+   |
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 2 
+Input:   Hex_input = 2 
+Output: Cathode_output = 01001001  
+ __ 
+ __|
+|__ 
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 3 
+Input:   Hex_input = 3 
+Output: Cathode_output = 01100001  
+ __ 
+ __|
+ __|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 4 
+Input:   Hex_input = 4 
+Output: Cathode_output = 00110011  
+    
+|__|
+   |
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 5 
+Input:   Hex_input = 5 
+Output: Cathode_output = 00100101  
+ __ 
+|__ 
+ __|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 6 
+Input:   Hex_input = 6 
+Output: Cathode_output = 00000101  
+ __ 
+|__ 
+|__|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 7 
+Input:   Hex_input = 7 
+Output: Cathode_output = 11110001  
+ __ 
+   |
+   |
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 8 
+Input:   Hex_input = 8 
+Output: Cathode_output = 00000001  
+ __ 
+|__|
+|__|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 9 
+Input:   Hex_input = 9 
+Output: Cathode_output = 00100001  
+ __ 
+|__|
+ __|
+ 
+DUT cathodes differed from what we expected :(
+ 
+Test # = 10 
+Input:   Hex_input = a 
+Output: Cathode_output = 00010001  
+ __ 
+|__|
+|  |
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 11 
+Input:   Hex_input = b 
+Output: Cathode_output = 00000111  
+    
+|__ 
+|__|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 12 
+Input:   Hex_input = c 
+Output: Cathode_output = 10001101  
+ __ 
+|   
+|__ 
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 13 
+Input:   Hex_input = d 
+Output: Cathode_output = 01000011  
+    
+ __|
+|__|
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 14 
+Input:   Hex_input = e 
+Output: Cathode_output = 00001101  
+ __ 
+|__ 
+|__ 
+ 
+DUT produced cathodes as expected!
+ 
+Test # = 15 
+Input:   Hex_input = f 
+Output: Cathode_output = 00011101  
+ __ 
+|__ 
+|   
+ 
+DUT produced cathodes as expected!
+ 
+All tests concluded!

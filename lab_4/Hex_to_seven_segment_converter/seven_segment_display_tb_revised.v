@@ -53,10 +53,10 @@ seven_segment_display seven_segment (hex_tb, Cout_tb);
 task SEVEN_SEGMENT_TEST;
 input [3:0] hex_value;
 reg [4*8:1] expected_7_seg_display_string[0:7];
+reg [7:0] Cout_expected;
 
 	begin
 		hex_tb = hex_value; // apply stimulus to the DUT
-		test_num = test_num + 1;
 		
 		// Here we compute the expected_7_seg_display_string (ASCII string for display)and display the expected pattern.
 		
@@ -113,6 +113,27 @@ reg [4*8:1] expected_7_seg_display_string[0:7];
 			8'h0,8'h1,8'h7,8'hc : expected_7_seg_display_string[6] = "  ";
 			default				: expected_7_seg_display_string[6] = "__";
 		endcase
+
+		case (hex_tb)
+		//  cathode letter designations   abcd_efgp 
+			4'b0000	: Cout_expected  = 8'b1000_0001; // Display 0
+			4'b0001	: Cout_expected  = 8'b1111_0011; // Display 1
+			4'b0010	: Cout_expected  = 8'b0100_1001; // Display 2
+			4'b0011	: Cout_expected  = 8'b0110_0001; // Display 3
+			4'b0100	: Cout_expected  = 8'b0011_0011; // Display 4
+			4'b0101	: Cout_expected  = 8'b0010_0101; // Display 5
+			4'b0110	: Cout_expected  = 8'b0000_0101; // Display 6
+			4'b0111	: Cout_expected  = 8'b1111_0001; // Display 7
+			4'b1000	: Cout_expected  = 8'b0000_0001; // Display 8
+			4'b1001	: Cout_expected  = 8'b0011_0001; // Display 9 // 9 without the bottom base (d segment inactivated)!
+			4'b1010	: Cout_expected  = 8'b0001_0001; // Display A
+			4'b1011	: Cout_expected  = 8'b0000_0111; // Display b
+			4'b1100	: Cout_expected  = 8'b1000_1101; // Display C
+			4'b1101	: Cout_expected  = 8'b0100_0011; // Display d
+			4'b1110	: Cout_expected  = 8'b0000_1101; // Display E
+			4'b1111	: Cout_expected  = 8'b0001_1101; // Display F
+			// "default" case branch needed only if you did not cover all cases
+		endcase
 		
 		#1; // wait for a little time after the stimulus (hex_tb = hex_value;) is applied
 		$display ("Test # = %0d ", test_num);
@@ -122,6 +143,12 @@ reg [4*8:1] expected_7_seg_display_string[0:7];
 		$display ("%0s%0s%0s",expected_7_seg_display_string[5],expected_7_seg_display_string[6],expected_7_seg_display_string[1]);
 		$display ("%0s%0s%0s",expected_7_seg_display_string[4],expected_7_seg_display_string[3],expected_7_seg_display_string[2]);
 		$display (" ");
+		if (Cout_tb == Cout_expected) begin
+			$display ("DUT produced cathodes as expected!");
+		end else begin
+			$display ("DUT cathodes differed from what we expected :(");
+		end
+		$display (" ");
 	    // output to file
 		$fdisplay (file_results,"Test # = %0d ", test_num);
 		$fdisplay (file_results,"Input:   Hex_input = %h ", hex_tb);
@@ -130,7 +157,16 @@ reg [4*8:1] expected_7_seg_display_string[0:7];
 		$fdisplay (file_results,"%0s%0s%0s",expected_7_seg_display_string[5],expected_7_seg_display_string[6],expected_7_seg_display_string[1]);
 		$fdisplay (file_results,"%0s%0s%0s",expected_7_seg_display_string[4],expected_7_seg_display_string[3],expected_7_seg_display_string[2]);
 		$fdisplay (file_results," ");
+		if (Cout_tb == Cout_expected) begin
+			$fdisplay (file_results, "DUT produced cathodes as expected!");
+		end else begin
+			$fdisplay (file_results, "DUT cathodes differed from what we expected :(");
+		end
+		$fdisplay (file_results," ");
+
 		#19;
+
+		test_num = test_num + 1;
 	end
 
 endtask

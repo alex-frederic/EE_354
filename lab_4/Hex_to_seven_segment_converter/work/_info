@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/WINDOWS/System32
+vseven_segment_display
+Z0 DXx6 sv_std 3 std 0 22 WmjPaeP=7F5?QFXzJ>D[Q2
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 M_@_X4W_]iF_caHzHOi5I1
+Ii@b;Tn0VzIhmeA;L8W4le2
+!s105 seven_segment_display_v_unit
+S1
+Z2 dC:/Users/Dinkley/Documents/ee354_labs/lab_4/Hex_to_seven_segment_converter
+w1770084035
+8seven_segment_display.v
+Fseven_segment_display.v
+L0 30
+Z3 OL;L;10.4c;61
+Z4 !s108 1770441107.000000
+!s107 seven_segment_display.v|
+!s90 -reportprogress|300|-sv|+acc|seven_segment_display.v|
+!i113 0
+Z5 o-sv +acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+vseven_segment_display_tb
+R0
+R1
+r1
+!s85 0
+31
+!i10b 1
+!s100 _8lgPMhi[32NX9:d@F[6^0
+IRiDZo`Wc]Y`73Co]^EzRl0
+!s105 seven_segment_display_tb_revised_v_unit
+S1
+R2
+w1770440803
+8seven_segment_display_tb_revised.v
+Fseven_segment_display_tb_revised.v
+L0 35
+R3
+R4
+!s107 seven_segment_display_tb_revised.v|
+!s90 -reportprogress|300|-sv|+acc|seven_segment_display_tb_revised.v|
+!i113 0
+R5
