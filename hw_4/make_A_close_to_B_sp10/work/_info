@@ -1,0 +1,50 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/WINDOWS/System32
+vmake_A_close_to_B
+Z0 VDg1SIo80bB@j0V0VzS_@n1
+r1
+!s85 0
+31
+!i10b 1
+!s100 6VUD2@``4XaRma7:olXPk3
+IAc1kn0E<;Z[Klc4WKnPM]2
+Z1 dC:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10
+w1770616744
+8make_A_close_to_B.v
+Fmake_A_close_to_B.v
+L0 40
+Z2 OL;L;10.4c;61
+Z3 !s108 1770616748.000000
+!s107 make_A_close_to_B.v|
+!s90 -reportprogress|300|+acc|make_A_close_to_B.v|
+!i113 0
+Z4 o+acc -L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+nmake_@a_close_to_@b
+vmake_A_close_to_B_tb
+R0
+r1
+!s85 0
+31
+!i10b 1
+!s100 HAU5;1oQij5F^I[dPZmC;1
+ImaY`>TRzd?e0=oQglYn:i1
+R1
+w1770466532
+8make_A_close_to_B_tb.v
+Fmake_A_close_to_B_tb.v
+L0 7
+R2
+R3
+!s107 make_A_close_to_B_tb.v|
+!s90 -reportprogress|300|+acc|make_A_close_to_B_tb.v|
+!i113 0
+R4
+nmake_@a_close_to_@b_tb

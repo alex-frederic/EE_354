@@ -1,0 +1,246 @@
+do make_A_close_to_B.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:28:12 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B.v 
+# -- Compiling module make_A_close_to_B
+# ** Error: make_A_close_to_B.v(88): (vlog-2730) Undefined variable: 'F'.
+# 
+# End time: 21:28:13 on Feb 08,2026, Elapsed time: 0:00:01
+# Errors: 1, Warnings: 0
+# ** Error: C:/questasim64_10.4c/win64/vlog failed.
+# Error in macro ./make_A_close_to_B.do line 5
+# C:/questasim64_10.4c/win64/vlog failed.
+#     while executing
+# "vlog +acc  "make_A_close_to_B.v""
+do make_A_close_to_B.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:28:41 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B.v 
+# -- Compiling module make_A_close_to_B
+# 
+# Top level modules:
+# 	make_A_close_to_B
+# End time: 21:28:41 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:28:42 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B_tb.v 
+# -- Compiling module make_A_close_to_B_tb
+# 
+# Top level modules:
+# 	make_A_close_to_B_tb
+# End time: 21:28:42 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -t 1ps -lib work -novopt make_A_close_to_B_tb 
+# Start time: 21:28:42 on Feb 08,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B_tb
+# Loading work.make_A_close_to_B_tb
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B
+# Loading work.make_A_close_to_B
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+do make_A_close_to_B.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:31:31 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B.v 
+# -- Compiling module make_A_close_to_B
+# 
+# Top level modules:
+# 	make_A_close_to_B
+# End time: 21:31:31 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:31:31 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B_tb.v 
+# -- Compiling module make_A_close_to_B_tb
+# 
+# Top level modules:
+# 	make_A_close_to_B_tb
+# End time: 21:31:31 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:31:36 on Feb 08,2026, Elapsed time: 0:02:54
+# Errors: 0, Warnings: 1
+# vsim -t 1ps -lib work -novopt make_A_close_to_B_tb 
+# Start time: 21:31:36 on Feb 08,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B_tb
+# Loading work.make_A_close_to_B_tb
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B
+# Loading work.make_A_close_to_B
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# Test number   1:  
+#  Ain =  138, Bin =  312, A_result =  308 .
+#     The flag was set. 
+#            Clock taken for this test = 6. 
+# 
+# Test number   2:  
+#  Ain =  112, Bin =  312, A_result =  312 .
+#     The flag was not set. 
+#            Clock taken for this test = 3. 
+# 
+# Test number   3:  
+#  Ain =  132, Bin =  312, A_result =  312 .
+#     The flag was set. 
+#            Clock taken for this test = 5. 
+# 
+# Test number   4:  
+#  Ain =  311, Bin =  312, A_result =  311 .
+#     The flag was set. 
+#            Clock taken for this test = 12. 
+# 
+# Test number   5:  
+#  Ain =  312, Bin =  312, A_result =  312 .
+#     The flag was not set. 
+#            Clock taken for this test = 1. 
+# 
+# 
+#  All tests concluded. Inspect the text file output_results.txt. 
+#  Current Clock Count = 43 
+# ** Note: $stop    : make_A_close_to_B_tb.v(149)
+#    Time: 891 ns  Iteration: 0  Instance: /make_A_close_to_B_tb
+# Break in NamedBeginStat STIMULUS at make_A_close_to_B_tb.v line 149
+run 100ns
+do make_A_close_to_B.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:58:01 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B.v 
+# -- Compiling module make_A_close_to_B
+# 
+# Top level modules:
+# 	make_A_close_to_B
+# End time: 21:58:01 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:58:01 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B_tb.v 
+# -- Compiling module make_A_close_to_B_tb
+# 
+# Top level modules:
+# 	make_A_close_to_B_tb
+# End time: 21:58:01 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:58:06 on Feb 08,2026, Elapsed time: 0:26:30
+# Errors: 0, Warnings: 1
+# vsim -t 1ps -lib work -novopt make_A_close_to_B_tb 
+# Start time: 21:58:06 on Feb 08,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B_tb
+# Loading work.make_A_close_to_B_tb
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B
+# Loading work.make_A_close_to_B
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# Test number   1:  
+#  Ain =  138, Bin =  312, A_result =  308 .
+#     The flag was set. 
+#            Clock taken for this test = 6. 
+# 
+# Test number   2:  
+#  Ain =  112, Bin =  312, A_result =  312 .
+#     The flag was set. 
+#            Clock taken for this test = 3. 
+# 
+# Test number   3:  
+#  Ain =  132, Bin =  312, A_result =  312 .
+#     The flag was set. 
+#            Clock taken for this test = 5. 
+# 
+# Test number   4:  
+#  Ain =  311, Bin =  312, A_result =  311 .
+#     The flag was set. 
+#            Clock taken for this test = 12. 
+# 
+# Test number   5:  
+#  Ain =  312, Bin =  312, A_result =  312 .
+#     The flag was set. 
+#            Clock taken for this test = 1. 
+# 
+# 
+#  All tests concluded. Inspect the text file output_results.txt. 
+#  Current Clock Count = 43 
+# ** Note: $stop    : make_A_close_to_B_tb.v(149)
+#    Time: 891 ns  Iteration: 0  Instance: /make_A_close_to_B_tb
+# Break in NamedBeginStat STIMULUS at make_A_close_to_B_tb.v line 149
+do make_A_close_to_B.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# 
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:59:08 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B.v 
+# -- Compiling module make_A_close_to_B
+# 
+# Top level modules:
+# 	make_A_close_to_B
+# End time: 21:59:08 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# QuestaSim-64 vlog 10.4c Compiler 2015.07 Jul 20 2015
+# Start time: 21:59:08 on Feb 08,2026
+# vlog -reportprogress 300 "+acc" make_A_close_to_B_tb.v 
+# -- Compiling module make_A_close_to_B_tb
+# 
+# Top level modules:
+# 	make_A_close_to_B_tb
+# End time: 21:59:08 on Feb 08,2026, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 21:59:12 on Feb 08,2026, Elapsed time: 0:01:06
+# Errors: 0, Warnings: 1
+# vsim -t 1ps -lib work -novopt make_A_close_to_B_tb 
+# Start time: 21:59:12 on Feb 08,2026
+# ** Warning: (vsim-8891) All optimizations are turned off because the -novopt switch is in effect. This will cause your simulation to run very slowly. If you are using this switch to preserve visibility for Debug or PLI features please see the User's Manual section on Preserving Object Visibility with vopt.
+# 
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B_tb
+# Loading work.make_A_close_to_B_tb
+# Refreshing C:/Users/Dinkley/Documents/ee354_labs/hw_4/make_A_close_to_B_sp10/work.make_A_close_to_B
+# Loading work.make_A_close_to_B
+# .main_pane.wave.interior.cs.body.pw.wf
+# .main_pane.structure.interior.cs.body.struct
+# .main_pane.objects.interior.cs.body.tree
+# Test number   1:  
+#  Ain =  138, Bin =  312, A_result =  308 .
+#     The flag was set. 
+#            Clock taken for this test = 6. 
+# 
+# Test number   2:  
+#  Ain =  112, Bin =  312, A_result =  312 .
+#     The flag was not set. 
+#            Clock taken for this test = 3. 
+# 
+# Test number   3:  
+#  Ain =  132, Bin =  312, A_result =  312 .
+#     The flag was set. 
+#            Clock taken for this test = 5. 
+# 
+# Test number   4:  
+#  Ain =  311, Bin =  312, A_result =  311 .
+#     The flag was set. 
+#            Clock taken for this test = 12. 
+# 
+# Test number   5:  
+#  Ain =  312, Bin =  312, A_result =  312 .
+#     The flag was not set. 
+#            Clock taken for this test = 1. 
+# 
+# 
+#  All tests concluded. Inspect the text file output_results.txt. 
+#  Current Clock Count = 43 
+# ** Note: $stop    : make_A_close_to_B_tb.v(149)
+#    Time: 891 ns  Iteration: 0  Instance: /make_A_close_to_B_tb
+# Break in NamedBeginStat STIMULUS at make_A_close_to_B_tb.v line 149
+# End time: 22:29:46 on Feb 08,2026, Elapsed time: 0:30:34
+# Errors: 0, Warnings: 1

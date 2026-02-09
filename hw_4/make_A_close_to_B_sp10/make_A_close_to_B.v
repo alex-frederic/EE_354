@@ -59,49 +59,57 @@ DONE = 3'b100;
 assign {Qd, Qc, Qi} = state;
 
 always @(posedge Clk, posedge Reset) 
-
-  begin  : CU_n_DU
+begin  : CU_n_DU
     if (Reset)
-       begin
-          state <= INI;
-	      A <= 12'bXXXXXXXXXXXX;        // to avoid recirculating mux controlled by Reset
-	      B <= 12'bXXXXXXXXXXXX;	    // to avoid recirculating mux controlled by Reset 
-		  Flag <= 1'bX;                 // to avoid ...
-	    end
+    begin
+        state <= INI;
+        A <= 12'bXXXXXXXXXXXX;        // to avoid recirculating mux controlled by Reset
+        B <= 12'bXXXXXXXXXXXX;	    // to avoid recirculating mux controlled by Reset 
+        Flag <= 1'bX;                 // to avoid ...
+    end
     else
-       begin
-         (* full_case, parallel_case *)
-         case (state)
-	        INI	: 
-	          begin
-		         // state transitions in the control unit
-		         if (Start)
-		           state <= ADJ;
-		         // RTL operations in the DPU (Data Path Unit) 
-		           A <= Ain;
-		           B <= Bin;
-		           Flag <= 0;
-	          end
-	        ADJ	:  // ** TODO **  complete RTL Operations and State Transitions
-	          begin
-		         // state transitions in the control unit
+    begin
+        (* full_case, parallel_case *)
+        case (state)
+            INI	: 
+            begin
+                // state transitions in the control unit
+                if (Start)
+                    state <= ADJ;
+                    // RTL operations in the DPU (Data Path Unit) 
+                    A <= Ain;
+                    B <= Bin;
+                    Flag <= 0;
+            end
+            
+            ADJ	:  // ** TODO **  complete RTL Operations and State Transitions
+            begin
+                // state transitions in the control unit
+                if ( ( A<B && Flag ) || (A==B) )
+                begin
+                    state <= DONE;
+                end
 
-				 
-		         // RTL operations in the Data Path 		           
+                // RTL operations in the Data Path
+                if (A<B && !Flag)
+                begin
+                    A <= A + 12'd100;
+                end
+                else if (A > B)
+                begin
+                    A <= A - 12'd10;
+                    Flag <= 1;
+                end
+            end
 
-				 
-				 
-				 
-				 
- 	          end
-	        DONE	:
-	          begin  
-		         // state transitions in the control unit
-		         if (Ack)
-		           state <= INI;
-		       end    
-      endcase
+            DONE :
+            begin  
+                // state transitions in the control unit
+                if (Ack)
+                    state <= INI;
+            end    
+        endcase
     end 
-  end
+end
  
 endmodule  
