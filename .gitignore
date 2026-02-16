@@ -1,13 +1,14 @@
 # File Types
-# *.qdb
-# *.qpg
-# *.qtl
+*.qdb
+*.qpg
+*.qtl
+*.mti
+*.mpf
 
+# Files
+**/transcript
+**/_vmake
+**/_info
 
-
-# # Files
-# _vmake
-# _info
-
-# # Directories
-# work
+# Directories
+**/work/
