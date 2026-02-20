@@ -126,9 +126,10 @@ ee354_debouncer #(.N_dc(28)) ee354_debouncer_1
         (.CLK(sys_clk), .RESET(Reset), .PB(BtnR), .DPB( ), 
 		.SCEN(BtnR_Pulse), .MCEN( ), .CCEN( ));
 
-ee354_debouncer #(.N_dc(28)) ee354_debouncer_0 // ****** TODO  in Part 2 ******
-        (                                      // complete this instantiation
-		                                    ); // to produce BtnU_Pulse from BtnU
+// ****** TODO  in Part 2 ******
+ee354_debouncer #(.N_dc(28)) ee354_debouncer_0
+        (.CLK(sys_clk), .RESET(Reset), .PB(BtnU), .DPB(), // complete this instantiation
+		 .SCEN(BtnU_Pulse), .MCEN(), .CCEN()); // to produce BtnU_Pulse from BtnU
 		
 //------------
 // DESIGN
@@ -138,8 +139,8 @@ ee354_debouncer #(.N_dc(28)) ee354_debouncer_0 // ****** TODO  in Part 2 ******
 	begin
 		if(Reset)
 		 begin			// ****** TODO  in Part 2 ******
-			Ain <=  ;  	// Is it necessary or desirable to initiate
-			Bin <=  ;	//  Ain and Bin to zero? 
+			Ain <= 4'b0000;  	// Is it necessary or desirable to initiate
+			Bin <=  4'b0000;	//  Ain and Bin to zero? 
 			// When you download the TA's .bit file or when you reset the Nexys-2 
 			// do you see "0000" on the SSDs or some random combination?
 			// When you go from DONE state to INITIAL state after working on a set
@@ -161,10 +162,10 @@ ee354_debouncer #(.N_dc(28)) ee354_debouncer_0 // ****** TODO  in Part 2 ******
 														// Please discuss with your TA.
 														// Recall aspects of the non-blocking assignment, and how delta-T 
 														// avoids race condition in real (physical) registers operation
-					if (               )  // complete this line
+					if (!A_bar_slash_B)  // complete this line
 						Ain <= {Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0};
 					else
-						Bin <=         ; // complete this line
+						Bin <= {Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0}; // complete this line
 				end
 		end
 	end
@@ -192,10 +193,10 @@ ee354_debouncer #(.N_dc(28)) ee354_debouncer_0 // ****** TODO  in Part 2 ******
 	// ****** TODO  in Part 2 ******
 	// assign y = s ? i1 : i0;  // an example of a 2-to-1 mux coding
 	// assign y = s1 ? (s0 ? i3: i2): (s0 ? i1: i0); // an example of a 4-to-1 mux coding
-	assign SSD3 = (q_Mult | q_Done) ? AB_GCD[7:4]  : q_I ? Ain[7:4] : A[7:4];
-	assign SSD2 = 
-	assign SSD1 = 
-	assign SSD0 = 
+	assign SSD3 = (q_Mult | q_Done) ? AB_GCD[7:4]  : (q_I ? Ain[7:4] : A[7:4]);
+	assign SSD2 = (q_Mult | q_Done) ? AB_GCD[3:0]  : (q_I ? Ain[3:0] : A[3:0]);
+	assign SSD1 = (q_Mult | q_Done) ? i_count[7:4]  : (q_I ? Bin[7:4] : B[7:4]);
+	assign SSD0 = (q_Mult | q_Done) ? i_count[3:0]  : (q_I ? Bin[3:0] : B[3:0]);
 
 
 	// need a scan clk for the seven segment display 
@@ -235,11 +236,11 @@ ee354_debouncer #(.N_dc(28)) ee354_debouncer_0 // ****** TODO  in Part 2 ******
 	always @ (ssdscan_clk, SSD0, SSD1, SSD2, SSD3)
 	begin : SSD_SCAN_OUT
 		case (ssdscan_clk) 
-				  2'b00: SSD =      ;	// ****** TODO  in Part 2 ******
-				  2'b01: SSD =      ;  	// Complete the four lines
+				  2'b00: SSD = SSD3;	// ****** TODO  in Part 2 ******
+				  2'b01: SSD = SSD2;  	// Complete the four lines
 				  
-				  2'b10: SSD =     ;
-				  2'b11: SSD =     ;
+				  2'b10: SSD = SSD1;
+				  2'b11: SSD = SSD0;
 		endcase 
 	end
 	
@@ -255,22 +256,22 @@ ee354_debouncer #(.N_dc(28)) ee354_debouncer_0 // ****** TODO  in Part 2 ******
 		    //                                                                abcdefg,Dp
 			// ****** TODO  in Part 2 ******
 			// Revise the code below so that the dot points do not glow for your design.
-			4'b0000: SSD_CATHODES = 8'b00000010; // 0
-			4'b0001: SSD_CATHODES = 8'b10011110; // 1
-			4'b0010: SSD_CATHODES = 8'b00100100; // 2
-			4'b0011: SSD_CATHODES = 8'b00001100; // 3
-			4'b0100: SSD_CATHODES = 8'b10011000; // 4
-			4'b0101: SSD_CATHODES = 8'b01001000; // 5
-			4'b0110: SSD_CATHODES = 8'b01000000; // 6
-			4'b0111: SSD_CATHODES = 8'b00011110; // 7
-			4'b1000: SSD_CATHODES = 8'b00000000; // 8
-			4'b1001: SSD_CATHODES = 8'b00001000; // 9
-			4'b1010: SSD_CATHODES = 8'b00010000; // A
-			4'b1011: SSD_CATHODES = 8'b11000000; // B
-			4'b1100: SSD_CATHODES = 8'b01100010; // C
-			4'b1101: SSD_CATHODES = 8'b10000100; // D
-			4'b1110: SSD_CATHODES = 8'b01100000; // E
-			4'b1111: SSD_CATHODES = 8'b01110000; // F    
+			4'b0000: SSD_CATHODES = 8'b00000011; // 0
+			4'b0001: SSD_CATHODES = 8'b10011111; // 1
+			4'b0010: SSD_CATHODES = 8'b00100101; // 2
+			4'b0011: SSD_CATHODES = 8'b00001101; // 3
+			4'b0100: SSD_CATHODES = 8'b10011001; // 4
+			4'b0101: SSD_CATHODES = 8'b01001001; // 5
+			4'b0110: SSD_CATHODES = 8'b01000001; // 6
+			4'b0111: SSD_CATHODES = 8'b00011111; // 7
+			4'b1000: SSD_CATHODES = 8'b00000001; // 8
+			4'b1001: SSD_CATHODES = 8'b00001001; // 9
+			4'b1010: SSD_CATHODES = 8'b00010001; // A
+			4'b1011: SSD_CATHODES = 8'b11000001; // B
+			4'b1100: SSD_CATHODES = 8'b01100011; // C
+			4'b1101: SSD_CATHODES = 8'b10000101; // D
+			4'b1110: SSD_CATHODES = 8'b01100001; // E
+			4'b1111: SSD_CATHODES = 8'b01110001; // F    
 			default: SSD_CATHODES = 8'bXXXXXXXX; // default is not needed as we covered all cases
 		endcase
 	end	

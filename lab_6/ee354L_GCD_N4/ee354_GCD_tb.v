@@ -96,7 +96,7 @@ module ee354_GCD_SCEN_tb_v;
 		#40;	
 		Start = 0;
 			
-		#  ;	// ****** TODO   ******
+		#140;	// ****** TODO   ******
 				// figure out the minimum delay amount	  
 				// needed (in integral multiples of 20's) before acknowledging
 				// for the data Ain = 36 and Bin = 24
@@ -127,7 +127,7 @@ module ee354_GCD_SCEN_tb_v;
 		Start = 0;
 
 			
-		#  ;	// ****** TODO ******
+		#80;	// ****** TODO ******
 				// figure out the correct delay amount	    
 				// needed before acknowledging
 				// for the data Ain = 5 and Bin = 15			   
@@ -146,8 +146,9 @@ module ee354_GCD_SCEN_tb_v;
 		begin
 			case ({q_I, q_Sub, q_Mult, q_Done})    // Note the concatenation operator {}
 				4'b1000: state_string = "q_I   ";  // ****** TODO ******
-				4'b0100: state_string = " ";       // Fill-in the three lines
-
+				4'b0100: state_string = "q_Sub ";       // Fill-in the three lines
+				4'b0010: state_string = "q_Mult";
+				4'b0001: state_string = "q_Done";
 			endcase
 		end
  

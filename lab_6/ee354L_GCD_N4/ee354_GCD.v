@@ -42,9 +42,9 @@ module ee354_GCD(Clk, SCEN, Reset, Start, Ack, Ain, Bin, A, B, AB_GCD, i_count, 
 		  begin
 			state <= I;
 			i_count <= 8'bx;  	// ****** TODO ******
-			A <= ;		  	// complete the 3 lines
-			B <= ;
-			AB_GCD <= ;			
+			A <= Ain;		  	// complete the 3 lines
+			B <= Bin;
+			AB_GCD <= 8'bx;
 		  end
 		else				// ****** TODO ****** complete several parts
 				case(state)	
@@ -59,39 +59,48 @@ module ee354_GCD(Clk, SCEN, Reset, Start, Ack, Ain, Bin, A, B, AB_GCD, i_count, 
 						AB_GCD <= 0;
 					end		
 					SUB: 
-		               if (SCEN) //  This causes single-stepping the SUB state
+		            	if (SCEN) //  This causes single-stepping the SUB state
 						begin		
 							// state transfers
-							if (A == B) state <= (i_count == 0) ?    :   ;
+							if (A == B) state <= (i_count == 0) ? (DONE) : (MULT);
+
 							// data transfers
-							if (A == B) AB_GCD <=   ;		
-							if (A < B)
-							  begin
+							if (A == B) begin
+								AB_GCD <= A;
+							end else if (A < B)
+							begin
 								// swap A and B
- 
- 
-							  end
+								A <= B;
+								B <= A;
+							end
 							else						// if (A > B)
-							  begin	
-
-
-
-
-
-
-
-
-
-							  end
+							begin	
+								if(!A[0]  &&  !B[0]) begin
+									A <= A/2;
+									B <= B/2;
+									i_count <= i_count + 1;
+								end else if (A[0]  &&  B[0]) begin
+									A <= A - B;
+								end else begin
+									if (!A[0]) begin
+										A <= A/2;
+									end else if (!B[0]) begin
+										B <= B/2;
+									end
+								end
+							end
 						end
 					MULT:
 					  if (SCEN) // This causes single-stepping the MULT state
 						begin
 							// state transfers
-							
+							if (i_count == 1) begin
+								state <= DONE;
+							end
+
 							// data transfers
-
-
+							AB_GCD <= AB_GCD * 2;
+							i_count <= i_count - 1;
 						end
 					
 					DONE:
