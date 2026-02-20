@@ -4,6 +4,7 @@
 *.qtl
 *.mti
 *.mpf
+*.wlf
 
 # Files
 **/transcript
