@@ -120,10 +120,10 @@ always @(posedge Clk, posedge Reset)
 			  
 	             
 	             // RTL operations in the Data Path
+                 X <= X - 7;
+                 
                  if (X == 7) begin
                     Max <= M[I];
-                 end else if (X > 7) begin
-                    X <= X - 7;
                  end
 
                  if (X <= 7) begin
