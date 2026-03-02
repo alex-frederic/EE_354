@@ -1,0 +1,47 @@
+ 
+ Implementation #2 results 
+ 
+Test #1: Negative numbers start from M[3] 
+
+ The M and the N arrays 
+
+    
+	
+	
+	
+
+Design entered DONE state from  CBC  .
+Clocks taken for this test =  . 
+
+Test #2: Last number negative  
+
+ The M and the N arrays 
+
+
+
+
+Design entered DONE state from  CBC  .
+Clocks taken for this test =  . 
+
+Test #3: All numbers negative 
+
+ The M and the N arrays 
+
+           
+
+
+Design entered DONE state from  CBC  .
+Clocks taken for this test =   . 
+
+Test #4: All numbers positive 
+
+ The M and the N arrays 
+
+           
+
+
+
+Design entered DONE state from  CBC  .
+Clocks taken for this test =   . 
+
+All tests concluded.
