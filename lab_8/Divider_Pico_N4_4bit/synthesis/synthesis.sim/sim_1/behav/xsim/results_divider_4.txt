@@ -1,0 +1,9 @@
+Reporting from the Qd Done state
+Xin: 7 Yin: 2 Quotient: 3 Remainder: 1
+It took          74 clocks to compute the quotient
+Reporting from the Qd Done state
+Xin:15 Yin: 3 Quotient: 5 Remainder: 0
+It took         110 clocks to compute the quotient
+Reporting from the Qd Done state
+Xin:14 Yin: 4 Quotient: 3 Remainder: 2
+It took          74 clocks to compute the quotient

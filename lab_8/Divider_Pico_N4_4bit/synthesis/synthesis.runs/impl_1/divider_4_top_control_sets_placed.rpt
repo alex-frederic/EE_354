@@ -1,0 +1,94 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Mar 14 23:29:35 2021
+| Host         : Laptop-GP running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file divider_4_top_control_sets_placed.rpt
+| Design       : divider_4_top
+| Device       : xc7a100t
+------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Histogram
+3. Flip-Flop Distribution
+4. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Total control sets                                       |    16 |
+|    Minimum number of control sets                        |    16 |
+|    Addition due to synthesis replication                 |     0 |
+|    Addition due to physical synthesis replication        |     0 |
+| Unused register locations in slices containing registers |    48 |
++----------------------------------------------------------+-------+
+* Control sets can be merged at opt_design using control_set_merge or merge_equivalent_drivers
+** Run report_qor_suggestions for automated merging and remapping suggestions
+
+
+2. Histogram
+------------
+
++--------------------+-------+
+|       Fanout       | Count |
++--------------------+-------+
+| Total control sets |    16 |
+| >= 0 to < 4        |     3 |
+| >= 4 to < 6        |     2 |
+| >= 6 to < 8        |     1 |
+| >= 8 to < 10       |     3 |
+| >= 10 to < 12      |     0 |
+| >= 12 to < 14      |     2 |
+| >= 14 to < 16      |     0 |
+| >= 16              |     5 |
++--------------------+-------+
+* Control sets can be remapped at either synth_design or opt_design
+
+
+3. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              50 |           18 |
+| No           | No                    | Yes                    |              20 |            5 |
+| No           | Yes                   | No                     |              18 |            7 |
+| Yes          | No                    | No                     |              42 |           15 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              14 |            5 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+4. Detailed Control Set Information
+-----------------------------------
+
++--------------------------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------------------------------------+------------------+----------------+
+|                         Clock Signal                         |                          Enable Signal                         |                                        Set/Reset Signal                                       | Slice Load Count | Bel Load Count |
++--------------------------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------------------------------------+------------------+----------------+
+|  program_rom/instantiate_loader.jtag_loader_6_inst/CLK       |                                                                |                                                                                               |                1 |              1 |
+|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk |                                                                |                                                                                               |                1 |              1 |
+|  ClkPort_IBUF_BUFG                                           | processor/flag_enable                                          | processor/internal_reset                                                                      |                2 |              2 |
+|  program_rom/instantiate_loader.jtag_loader_6_inst/CLK       |                                                                | program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_dout_int[7]_i_1_n_0 |                1 |              4 |
+|  ClkPort_IBUF_BUFG                                           | processor/Done                                                 |                                                                                               |                1 |              4 |
+|  ClkPort_IBUF_BUFG                                           |                                                                | processor/internal_reset                                                                      |                3 |              6 |
+|  ClkPort_IBUF_BUFG                                           |                                                                | program_rom/instruction[7]                                                                    |                3 |              8 |
+|  ClkPort_IBUF_BUFG                                           | processor/E[0]                                                 |                                                                                               |                4 |              8 |
+|  ClkPort_IBUF_BUFG                                           | processor/spm_enable                                           |                                                                                               |                2 |              8 |
+|  ClkPort_IBUF_BUFG                                           | processor/t_state_0                                            | processor/internal_reset                                                                      |                3 |             12 |
+|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/shift        |                                                                                               |                5 |             13 |
+|  ClkPort_IBUF_BUFG                                           | processor/register_enable                                      |                                                                                               |                2 |             16 |
+|  ClkPort_IBUF_BUFG                                           | processor/t_state_0                                            |                                                                                               |                2 |             16 |
+|  program_rom/instantiate_loader.jtag_loader_6_inst/shift_clk | program_rom/instantiate_loader.jtag_loader_6_inst/jtag_din_int |                                                                                               |                5 |             17 |
+|  ClkPort_IBUF_BUFG                                           |                                                                | BtnC_IBUF                                                                                     |                5 |             20 |
+|  ClkPort_IBUF_BUFG                                           |                                                                |                                                                                               |               16 |             48 |
++--------------------------------------------------------------+----------------------------------------------------------------+-----------------------------------------------------------------------------------------------+------------------+----------------+
+
+

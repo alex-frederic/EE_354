@@ -1,0 +1,351 @@
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.2 (win64) Build 2708876 Wed Nov  6 21:40:23 MST 2019
+| Date         : Sun Mar 14 23:30:46 2021
+| Host         : Laptop-GP running 64-bit major release  (build 9200)
+| Command      : report_methodology -file divider_4_top_methodology_drc_routed.rpt -pb divider_4_top_methodology_drc_routed.pb -rpx divider_4_top_methodology_drc_routed.rpx
+| Design       : divider_4_top
+| Device       : xc7a100tcsg324-1
+| Speed File   : -1
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max violations: <unlimited>
+             Violations found: 63
++-----------+------------------+-------------------------------+------------+
+| Rule      | Severity         | Description                   | Violations |
++-----------+------------------+-------------------------------+------------+
+| TIMING-17 | Critical Warning | Non-clocked sequential cell   | 37         |
+| TIMING-18 | Warning          | Missing input or output delay | 26         |
++-----------+------------------+-------------------------------+------------+
+
+2. REPORT DETAILS
+-----------------
+TIMING-17#1 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.bram_ce_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#2 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_dout_int_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#3 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_dout_int_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#4 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_dout_int_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#5 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_dout_int_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#6 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.control_reg_ce_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#7 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.jtag_addr_int_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#8 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.jtag_din_int_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#9 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.jtag_we_int_reg/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#10 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[0].jtag_addr_int_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#11 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[1].jtag_addr_int_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#12 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[2].jtag_addr_int_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#13 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[3].jtag_addr_int_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#14 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[4].jtag_addr_int_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#15 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[5].jtag_addr_int_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#16 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[6].jtag_addr_int_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#17 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[7].jtag_addr_int_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#18 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop1[8].jtag_addr_int_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#19 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[0].jtag_din_int_reg[1]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#20 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[10].jtag_din_int_reg[11]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#21 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[11].jtag_din_int_reg[12]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#22 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[12].jtag_din_int_reg[13]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#23 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[13].jtag_din_int_reg[14]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#24 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[14].jtag_din_int_reg[15]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#25 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[15].jtag_din_int_reg[16]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#26 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[16].jtag_din_int_reg[17]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#27 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[1].jtag_din_int_reg[2]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#28 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[2].jtag_din_int_reg[3]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#29 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[3].jtag_din_int_reg[4]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#30 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[4].jtag_din_int_reg[5]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#31 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[5].jtag_din_int_reg[6]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#32 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[6].jtag_din_int_reg[7]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#33 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[7].jtag_din_int_reg[8]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#34 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[8].jtag_din_int_reg[9]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#35 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.loop2[9].jtag_din_int_reg[10]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#36 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/instantiate_loader.jtag_loader_6_inst/jtag_loader_gen.picoblaze_reset_int_reg[0]/C is not reached by a timing clock
+Related violations: <none>
+
+TIMING-17#37 Critical Warning
+Non-clocked sequential cell  
+The clock pin program_rom/ram_1k_generate.akv7.kcpsm6_rom/CLKBWRCLK is not reached by a timing clock
+Related violations: <none>
+
+TIMING-18#1 Warning
+Missing input or output delay  
+An input delay is missing on BtnC relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#2 Warning
+Missing input or output delay  
+An input delay is missing on BtnL relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#3 Warning
+Missing input or output delay  
+An input delay is missing on BtnR relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#4 Warning
+Missing input or output delay  
+An input delay is missing on Sw0 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#5 Warning
+Missing input or output delay  
+An input delay is missing on Sw1 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#6 Warning
+Missing input or output delay  
+An input delay is missing on Sw2 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#7 Warning
+Missing input or output delay  
+An input delay is missing on Sw3 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#8 Warning
+Missing input or output delay  
+An input delay is missing on Sw4 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#9 Warning
+Missing input or output delay  
+An input delay is missing on Sw5 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#10 Warning
+Missing input or output delay  
+An input delay is missing on Sw6 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#11 Warning
+Missing input or output delay  
+An input delay is missing on Sw7 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#12 Warning
+Missing input or output delay  
+An output delay is missing on An0 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#13 Warning
+Missing input or output delay  
+An output delay is missing on An1 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#14 Warning
+Missing input or output delay  
+An output delay is missing on An2 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#15 Warning
+Missing input or output delay  
+An output delay is missing on An3 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#16 Warning
+Missing input or output delay  
+An output delay is missing on Ca relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#17 Warning
+Missing input or output delay  
+An output delay is missing on Cb relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#18 Warning
+Missing input or output delay  
+An output delay is missing on Cc relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#19 Warning
+Missing input or output delay  
+An output delay is missing on Cd relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#20 Warning
+Missing input or output delay  
+An output delay is missing on Ce relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#21 Warning
+Missing input or output delay  
+An output delay is missing on Cf relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#22 Warning
+Missing input or output delay  
+An output delay is missing on Cg relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#23 Warning
+Missing input or output delay  
+An output delay is missing on Ld4 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#24 Warning
+Missing input or output delay  
+An output delay is missing on Ld5 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#25 Warning
+Missing input or output delay  
+An output delay is missing on Ld6 relative to clock(s) ClkPort
+Related violations: <none>
+
+TIMING-18#26 Warning
+Missing input or output delay  
+An output delay is missing on Ld7 relative to clock(s) ClkPort
+Related violations: <none>
+
+

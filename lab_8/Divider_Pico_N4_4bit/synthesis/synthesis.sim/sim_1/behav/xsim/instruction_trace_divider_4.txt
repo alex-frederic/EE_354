@@ -1,0 +1,288 @@
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 00 Divider_s1: 00 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 26 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: 72 Divider_s1: 00 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 28 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: 72 Divider_s1: 72 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 30 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: 72 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 32 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: 70 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 34 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 36 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 38 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 40 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 42 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 44 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 46 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 48 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 50 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 52 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 54 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: 72 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 56 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: 72 Divider_s1: 72 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 58 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: 72 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 60 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: 70 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 62 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 64 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 66 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 68 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 70 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 72 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 00  cc: 74 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 76 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 78 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 80 
+Addr: 00e  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 82 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 84 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 86 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 88 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 90 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 92 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 94 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 96 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 98 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 100 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 07 Control_s4: 02  cc: 102 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 10 Control_s4: 02  cc: 104 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 106 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 108 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 110 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 05 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 112 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 10 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 114 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 116 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 118 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 15 Control_s4: 02  cc: 120 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 20 Control_s4: 02  cc: 122 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 124 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 126 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 128 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 03 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 130 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 20 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 132 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 134 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 136 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 23 Control_s4: 02  cc: 138 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 02  cc: 140 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 142 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 144 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 146 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 148 
+Addr: 018  Instr: 2b091 OUTPUTK 09, 1       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 150 
+Addr: 019  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 02  cc: 152 
+Addr: 01a  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 154 
+Addr: 01b  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 156 
+Addr: 01c  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 158 
+Addr: 01d  Instr: 03401 AND s4, 01          Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 160 
+Addr: 01e  Instr: 32018 JUMP Z, 018         Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 162 
+Addr: 018  Instr: 2b091 OUTPUTK 09, 1       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 164 
+Addr: 019  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 00  cc: 166 
+Addr: 01a  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 168 
+Addr: 01b  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 170 
+Addr: 01c  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 172 
+Addr: 01d  Instr: 03401 AND s4, 01          Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 174 
+Addr: 01e  Instr: 32018 JUMP Z, 018         Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 176 
+Addr: 01f  Instr: 22000 JUMP 000            Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 178 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 01 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 180 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: 72 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 182 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: 72 Divider_s1: 72 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 184 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: 72 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 186 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: 70 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 188 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 190 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 192 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 194 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 30 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 196 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 198 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 01  cc: 200 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 202 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 204 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 206 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 07 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 208 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: f3 Divider_s1: 02 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 210 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: f3 Divider_s1: f3 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 212 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: f3 Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 214 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: f0 Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 216 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 78 Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 218 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 3c Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 220 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1e Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 222 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 224 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 226 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 00  cc: 228 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 230 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 232 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 234 
+Addr: 00e  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 236 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 31 Control_s4: 02  cc: 238 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 240 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 242 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 244 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 246 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 248 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 250 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 252 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 254 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 0f Control_s4: 02  cc: 256 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 10 Control_s4: 02  cc: 258 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 260 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 262 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 264 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 0c Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 266 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 10 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 268 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 270 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 272 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 1c Control_s4: 02  cc: 274 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 20 Control_s4: 02  cc: 276 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 278 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 280 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 282 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 09 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 284 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 20 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 286 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 288 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 290 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 29 Control_s4: 02  cc: 292 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 02  cc: 294 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 296 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 298 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 300 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 06 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 302 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 30 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 304 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 306 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 308 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 36 Control_s4: 02  cc: 310 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 40 Control_s4: 02  cc: 312 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 314 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 316 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 318 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 03 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 320 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 40 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 322 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 324 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 326 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 43 Control_s4: 02  cc: 328 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 330 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 332 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 334 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 336 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 338 
+Addr: 018  Instr: 2b091 OUTPUTK 09, 1       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 340 
+Addr: 019  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 342 
+Addr: 01a  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 344 
+Addr: 01b  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 346 
+Addr: 01c  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 348 
+Addr: 01d  Instr: 03401 AND s4, 01          Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 350 
+Addr: 01e  Instr: 32018 JUMP Z, 018         Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 352 
+Addr: 018  Instr: 2b091 OUTPUTK 09, 1       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 354 
+Addr: 019  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 356 
+Addr: 01a  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 358 
+Addr: 01b  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 360 
+Addr: 01c  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 362 
+Addr: 01d  Instr: 03401 AND s4, 01          Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 364 
+Addr: 01e  Instr: 32018 JUMP Z, 018         Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 366 
+Addr: 01f  Instr: 22000 JUMP 000            Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 368 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 00 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 370 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: f3 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 372 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: f3 Divider_s1: f3 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 374 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: f3 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 376 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: f0 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 378 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 78 Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 380 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 3c Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 382 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1e Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 384 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 50 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 386 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 388 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 01  cc: 390 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 392 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 394 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 396 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 0f Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 398 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: e4 Divider_s1: 03 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 400 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: e4 Divider_s1: e4 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 402 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 404 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: e0 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 406 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 70 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 408 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 410 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 412 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 414 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 416 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 00  cc: 418 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 420 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 422 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 424 
+Addr: 00e  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 426 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 50 Control_s4: 02  cc: 428 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 00 Control_s4: 02  cc: 430 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 432 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 434 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 436 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 438 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 440 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 442 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 444 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 0e Control_s4: 02  cc: 446 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 10 Control_s4: 02  cc: 448 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 450 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 452 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 454 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 0a Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 456 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 10 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 458 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 460 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 462 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 1a Control_s4: 02  cc: 464 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 20 Control_s4: 02  cc: 466 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 468 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 470 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 472 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 06 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 474 
+Addr: 015  Instr: 18010 SUB s0, s1          Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 20 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 476 
+Addr: 016  Instr: 11210 ADD s2, 10          Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 478 
+Addr: 017  Instr: 2200f JUMP 00F            Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 480 
+Addr: 00f  Instr: 2b041 OUTPUTK 04, 1       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 26 Control_s4: 02  cc: 482 
+Addr: 010  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 02  cc: 484 
+Addr: 011  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 486 
+Addr: 012  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 488 
+Addr: 013  Instr: 1c010 COMPARE s0, s1      Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 490 
+Addr: 014  Instr: 3a018 JUMP C, 018         Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 492 
+Addr: 018  Instr: 2b091 OUTPUTK 09, 1       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 494 
+Addr: 019  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 02  cc: 496 
+Addr: 01a  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 498 
+Addr: 01b  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 02  cc: 500 
+Addr: 01c  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 502 
+Addr: 01d  Instr: 03401 AND s4, 01          Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 504 
+Addr: 01e  Instr: 32018 JUMP Z, 018         Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 506 
+Addr: 018  Instr: 2b091 OUTPUTK 09, 1       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 508 
+Addr: 019  Instr: 00a20 LOAD sA, s2         Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 30 Control_s4: 00  cc: 510 
+Addr: 01a  Instr: 04a00 OR sA, s0           Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 512 
+Addr: 01b  Instr: 2da00 OUTPUT sA, 00       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 514 
+Addr: 01c  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 516 
+Addr: 01d  Instr: 03401 AND s4, 01          Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 518 
+Addr: 01e  Instr: 32018 JUMP Z, 018         Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 520 
+Addr: 01f  Instr: 22000 JUMP 000            Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 522 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 02 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 524 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 526 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: e4 Divider_s1: e4 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 528 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 530 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: e0 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 532 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 70 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 534 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 536 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 538 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 30 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 540 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 542 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 01  cc: 544 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 546 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 548 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 550 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 552 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 554 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: e4 Divider_s1: e4 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 556 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 558 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: e0 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 560 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 70 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 562 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 564 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 566 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 568 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 570 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 572 
+Addr: 00b  Instr: 09401 INPUT s4, 01        Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 574 
+Addr: 00c  Instr: 03402 AND s4, 02          Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 576 
+Addr: 00d  Instr: 32000 JUMP Z, 000         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 578 
+Addr: 000  Instr: 2b021 OUTPUTK 02, 1       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 580 
+Addr: 001  Instr: 09000 INPUT s0, 00        Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 582 
+Addr: 002  Instr: 00100 LOAD s1, s0         Dividend_Remainder_s0: e4 Divider_s1: e4 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 584 
+Addr: 003  Instr: 0310f AND s1, 0F          Dividend_Remainder_s0: e4 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 586 
+Addr: 004  Instr: 030f0 AND s0, F0          Dividend_Remainder_s0: e0 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 588 
+Addr: 005  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 70 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 590 
+Addr: 006  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 38 Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 592 
+Addr: 007  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 1c Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 594 
+Addr: 008  Instr: 1400e SR0 s0              Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 596 
+Addr: 009  Instr: 01200 LOAD s2, 00         Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 598 
+Addr: 00a  Instr: 2d000 OUTPUT s0, 00       Dividend_Remainder_s0: 0e Divider_s1: 04 Quotient_s2: 00 Quotient_Remainder_sa: 32 Control_s4: 00  cc: 600 

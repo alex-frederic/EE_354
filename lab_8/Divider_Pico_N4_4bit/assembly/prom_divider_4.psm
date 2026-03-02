@@ -1,0 +1,90 @@
+  ; KCPSM6 Program
+                   ;Author         - Vikram & Chethan
+				   ;revised in Fall 2020, Spring 2021  - Gandhi 10/3/2020, 3/14/2021
+                   ;File		   - prom_divider_4.psm 
+;**************************************************************************************
+;Port definitions
+;**************************************************************************************
+                   CONSTANT Dividend_Divisor_port,   00'd     ;port00 used for loading info of Dividend and Divisor
+                   CONSTANT Control_signal_port,     01'd	  ;port01 used for loading info of Start and ACK signals
+                   CONSTANT Quotient_Remainder_port, 00'd	  ;port00 used for outputting Quotient and Remainder 
+				   CONSTANT Current_State_port,      01'd	  ;port01 used for outputting current state info (Done (QD), Compute (QC), Initial (QI), and Done) to LEDs
+
+; Current State format from divider_4_top.v
+;			Done <= out_port[0];
+;			Qi <= out_port[1];
+;			Qc <= out_port[2];
+;			Qd <= out_port[3];
+
+				   CONSTANT Report_Qi, 			00000010'b
+				   CONSTANT Report_Qc, 			00000100'b
+				   CONSTANT Report_Qd_Done, 	00001001'b
+
+; Control signal format from divider_4_top.v
+;           1'b1 : in_port <= {6'b000000,Start,Ack};	
+			   
+				   CONSTANT Mask_to_check_Start, 	00000010'b
+				   CONSTANT Mask_to_check_Ack, 		00000001'b			   
+				   
+;**************************************************************************************
+; Special Register usage
+;**************************************************************************************
+  				  ;NAMEREG Not used here (reference page 53 in User guide Picoblaze_KCPSM6_Release9_30Sept14)
+				  ;   One could rename registers as shown below, but I felt, it is not good to rename everything.
+				  ;NAMEREG s0 Dividend_s0
+				  ;NAMEREG s1 Divisor_s1
+				  ;NAMEREG s2 Quotient_s2
+				  ;NAMEREG s4 Control_s4
+				  ;NAMEREG sA Quotient_Remainder_sA
+;**************************************************************************************
+;MAIN PROGRAM
+;**************************************************************************************
+				   ;Control Signal Format in s4 {6'b000000, Start, Ack}
+		   
+	state_initial: OUTPUTK Report_Qi, Current_State_port 	; Indicating Current State as Initial State (QI)
+				   INPUT s0, Dividend_Divisor_port			; Register s0 holds Dividend(X), Divisor(Y)					  
+				   LOAD s1,s0								; Make a copy of XY in Register s1
+				   AND s1,0F                    			; Extracting Divisor using mask 00001111 to get 0Y in s1
+				   AND s0,F0				        		; Extracting Dividend using mask 11110000 to get X0 in s0
+				   SR0 s0									; SR0 >> XXXX 0000 -> 0XXX X000  Right shift Operation
+				   SR0 s0									; SR0 >> 0XXX X000 -> 00XX XX00
+				   SR0 s0									; SR0 >> 00XX XX00 -> 000X XXX0
+				   SR0 s0		                			; SR0 >> 000X XXX0 -> 0000 XXXX - s0 has value 0X (the Dividend)
+				   LOAD s2,00								; Quotient Counter in the upper 4 bits of s2
+				   OUTPUT s0, Quotient_Remainder_port		; Sending out initial Quotient and Remainder (Dividend(X)) to fabric logic
+				   INPUT s4, Control_signal_port			; Load the Control Signal Information into register s4
+				   AND s4, Mask_to_check_Start				; Check to see if Start Control Signal is set using 00000010'b Mask
+				   JUMP Z, state_initial		 			; Jump back to state_initial if Start signal did not go active	   				   
+				   JUMP state_compute						; Jump to Compute State if Start (BtnL) is pressed 
+
+;***************************************************************************************
+;Compute State (Division Sequence)
+;****************************************************************************************					
+	state_compute: OUTPUTK Report_Qc, Current_State_port  	; Indicating Current State as Compute State	(QC)
+				   LOAD sA,s2								; Make a copy of quotient in the upper 4 bits of s2 in Register sA
+				   OR  sA, s0								; Merge Quotient_Remainder into sA for reporting to the top design
+				   OUTPUT sA, Quotient_Remainder_port		; Sending out Quotient and Remainder (Dividend(X)) to the fabric logic
+				   COMPARE s0, s1							; Compare Dividend and Divisor to check if Dividend is smaller than Divisor
+				   JUMP C, state_done						; If Dividend is smaller, jump to Done State (QD)
+				   SUB s0, s1								; Subtract Divisor from Dividend
+				   ADD s2, 10								; Increment Quotient (in the upper fours bits of s2) after each repetitive Subtraction by adding 0001_0000 ( = 16) to s2
+				   JUMP state_compute						; If Dividend is not smaller, stay in Compute State (QC)
+
+;****************************************************************************************
+;Done State
+;****************************************************************************************
+	state_done:	   OUTPUTK Report_Qd_Done, Current_State_port	; Indicating Current State as Done State and also the Done signal (QD, Done)	   
+				   LOAD sA,s2								; Make a copy of quotient in the upper 4 bits of s2 in Register sA
+				   OR  sA, s0								; Merge Quotient_Remainder into sA for reporting to the top design
+				   OUTPUT sA, Quotient_Remainder_port		; Sending out Quotient and Remainder to the fabric logic
+				   INPUT s4, Control_signal_port			; Load the Control Signal Information into register s4
+				   AND s4, Mask_to_check_Ack				; Check to see if ACK is received
+				   JUMP Z, state_done						; Jump to state_initial if ACK is received
+				   JUMP state_initial						; Stay in Done State till ACK comes (until BtnR is pressed)
+;**************************************************************************************
+;Interrupt Vector
+;**************************************************************************************
+                   ;Not used here
+                   ;ADDRESS 3FF
+			
+                      
