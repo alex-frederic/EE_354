@@ -1,0 +1,35 @@
+Vivado Simulator v2024.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/Xilinx/Vivado/2024.1/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot divider_8_top_simulation_tb_behav xil_defaultlib.divider_8_top_simulation_tb xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+WARNING: [XSIM 43-4099] "C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation.v" Line 13. Module divider_8_top_simulation doesn't have a timescale but at least one module in design has a timescale.
+WARNING: [XSIM 43-4099] "C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation.v" Line 13. Module divider_8_top_simulation doesn't have a timescale but at least one module in design has a timescale.
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module unisims_ver.LUT6_2
+Compiling module unisims_ver.FDRE_default
+Compiling module unisims_ver.FD
+Compiling module unisims_ver.LUT6
+Compiling module unisims_ver.FDR
+Compiling module unisims_ver.XORCY
+Compiling module unisims_ver.MUXCY
+Compiling module unisims_ver.RAM32M
+Compiling module unisims_ver.FDSE_default
+Compiling module unisims_ver.FDS
+Compiling module unisims_ver.RAM64M
+Compiling module xil_defaultlib.kcpsm6(hwbuild=8'b01000001)
+Compiling module unisims_ver.RB18_INTERNAL_VLOG(READ_WIDTH_A=...
+Compiling module unisims_ver.RAMB18E1(INITP_00=256'b010110000...
+Compiling module unisims_ver.BSCANE2
+Compiling module unisims_ver.BUFG
+Compiling module xil_defaultlib.jtag_loader_6(C_FAMILY="7S",C_AD...
+Compiling module xil_defaultlib.prom_divider_8(C_JTAG_LOADER_ENA...
+Compiling module xil_defaultlib.divider_8_top_simulation
+Compiling module xil_defaultlib.divider_8_top_simulation_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot divider_8_top_simulation_tb_behav

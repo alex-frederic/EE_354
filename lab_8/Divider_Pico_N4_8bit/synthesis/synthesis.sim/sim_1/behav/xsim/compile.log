@@ -1,0 +1,18 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module divider_8_top_simulation
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module kcpsm6
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1483]
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1484]
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1485]
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1796]
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1885]
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1886]
+WARNING: [VRFC 10-8284] parameter declaration is not allowed here in this mode of Verilog [C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v:1887]
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Xilinx/Divider_Pico_N4_8bit/sources/prom_divider_8.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module prom_divider_8
+INFO: [VRFC 10-311] analyzing module jtag_loader_6
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation_tb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module divider_8_top_simulation_tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Xilinx/Divider_Pico_N4_8bit/synthesis/synthesis.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

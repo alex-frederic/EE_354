@@ -1,0 +1,86 @@
+               ; KCPSM6 Program
+               ;Author         - Vikram & Chethan
+               ;revised in Fall 2020, Spring 2021  - Gandhi 10/3/2020, 3/14/2021
+               ;File     - prom_divider_8.psm (copy of prom_divider_4.psm for students to revise)
+               ;**************************************************************************************
+               ;Port definitions
+               ;**************************************************************************************
+               ; ********* TODO *********
+               ; You need three read ports instead of two read ports.
+               ; You need three write ports instead of two write ports.
+               ; Change the following 4 lines appropriately
+               CONSTANT Dividend_port, 00'd               ;port00 used for loading info of Dividend
+               CONSTANT Divisor_port, 01'd                ;port01 used for loading info of Divisor
+               CONSTANT Control_signal_port, 02'd         ;port02 used for loading info of Start and ACK signals
+               CONSTANT Quotient_port, 00'd               ;port00 used for outputting Quotient
+               CONSTANT Remainder_port, 01'd              ;port01 used for outputting Remainder
+               CONSTANT Current_State_port, 02'd          ;port02 used for outputting current state info (Done (QD), Compute (QC), Initial (QI), and Done) to LEDs
+               ; Current State format from divider_8_top.v
+               ;   Done <= out_port[0];
+               ;   Qi <= out_port[1];
+               ;   Qc <= out_port[2];
+               ;   Qd <= out_port[3];
+               CONSTANT Report_Qi, 00000010'b
+               CONSTANT Report_Qc, 00000100'b
+               CONSTANT Report_Qd_Done, 00001001'b
+               ; ********* TODO *********
+               ; Change the following two lines appropriately
+               ; Control signal format from divider_4_top.v
+               ;           1'b1 : in_port <= {6'b000000,Start,Ack};
+               CONSTANT Mask_to_check_Start, 00000010'b
+               CONSTANT Mask_to_check_Ack, 00000001'b
+               ;**************************************************************************************
+               ; Special Register usage
+               ;**************************************************************************************
+               ;NAMEREG Not used here (reference page 53 in User guide Picoblaze_KCPSM6_Release9_30Sept14)
+               ;   One could rename registers as shown below, but I felt, it is not good to rename everything.
+               ;NAMEREG s0 Dividend_s0
+               ;NAMEREG s1 Divisor_s1
+               ;NAMEREG s2 Quotient_s2
+               ;NAMEREG s4 Control_s4
+               ;NAMEREG sA Quotient_Remainder_sA
+               ;**************************************************************************************
+               ;MAIN PROGRAM
+               ;**************************************************************************************
+               ; ********* TODO *********
+               ; Go through the code for each of the three states and revise them appropriately.
+               ; Since you do not need to concatenate two 4-bit items here, probably you do not need
+               ; "OR" instruction or teh sA register in this .psm file.
+               ; Try to use s0 for Dividend, s1 for Divisor, s2 for Quotient and s4 for Control
+               ;Control Signal Format in s4 {6'b000000, Start, Ack}
+state_initial: OUTPUTK Report_Qi, Current_State_port      ; Indicating Current State as Initial State (QI)
+               INPUT s0, Dividend_port                    ; Register s0 holds Dividend (X)
+               INPUT s1, Divisor_port                     ; Register s1 holds Divisor (Y)
+               LOAD s2, 00                                ; Initialize Quotient counter to 00
+               OUTPUT s2, Quotient_port                   ; Send out initial Quotient (0) to fabric logic
+               OUTPUT s0, Remainder_port                  ; Send out initial Remainder (Dividend/X) to fabric logic
+               INPUT s4, Control_signal_port              ; Load the Control Signal Information into register s4
+               AND s4, Mask_to_check_Start                ; Check to see if Start Control Signal is set using 00000010'b Mask
+               JUMP Z, state_initial                      ; Jump back to state_initial if Start signal did not go active
+               JUMP state_compute                         ; Jump to Compute State if Start (BtnL) is pressed
+               ;***************************************************************************************
+               ;Compute State (Division Sequence)
+               ;****************************************************************************************
+state_compute: OUTPUTK Report_Qc, Current_State_port      ; Indicating Current State as Compute State (QC)
+               OUTPUT s2, Quotient_port                   ; Send out Quotient to fabric logic
+               OUTPUT s0, Remainder_port                  ; Send out Remainder (Dividend/X) to fabric logic
+               COMPARE s0, s1                             ; Compare Dividend and Divisor to check if Dividend is smaller than Divisor
+               JUMP C, state_done                         ; If Dividend is smaller, jump to Done State (QD)
+               SUB s0, s1                                 ; Subtract Divisor from Dividend
+               ADD s2, 01                                 ; Increment Quotient (in s2) after each repetitive Subtraction by adding 0000_0001 ( = 1) to s2
+               JUMP state_compute                         ; If Dividend is not smaller, stay in Compute State (QC)
+               ;****************************************************************************************
+               ;Done State
+               ;****************************************************************************************
+   state_done: OUTPUTK Report_Qd_Done, Current_State_port ; Indicating Current State as Done State and also the Done signal (QD, Done)
+               OUTPUT s2, Quotient_port                   ; Send out Quotient to fabric logic
+               OUTPUT s0, Remainder_port                  ; Send out Remainder (Dividend/X) to fabric logic
+               INPUT s4, Control_signal_port              ; Load the Control Signal Information into register s4
+               AND s4, Mask_to_check_Ack                  ; Check to see if ACK is received
+               JUMP Z, state_done                         ; Jump to state_initial if ACK is received
+               JUMP state_initial                         ; Stay in Done State till ACK comes (until BtnR is pressed)
+               ;**************************************************************************************
+               ;Interrupt Vector
+               ;**************************************************************************************
+               ;Not used here
+               ;ADDRESS 3FF

@@ -1,0 +1,9 @@
+0.7
+2020.2
+May 22 2024
+19:03:11
+C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation.v,1772506821,verilog,,C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v,,divider_8_top_simulation,,,,,,,,
+C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation_tb.v,1772504867,verilog,,,,divider_8_top_simulation_tb,,,,,,,,
+C:/Xilinx/Divider_Pico_N4_8bit/sources/kcpsm6.v,1772433145,verilog,,C:/Xilinx/Divider_Pico_N4_8bit/sources/prom_divider_8.v,,kcpsm6,,,,,,,,
+C:/Xilinx/Divider_Pico_N4_8bit/sources/prom_divider_8.v,1772505088,verilog,,C:/Xilinx/Divider_Pico_N4_8bit/sources/divider_8_top_simulation_tb.v,,jtag_loader_6;prom_divider_8,,,,,,,,
+C:/Xilinx/Divider_Pico_N4_8bit/synthesis/synthesis.sim/sim_1/behav/xsim/glbl.v,1708598507,verilog,,,,glbl,,,,,,,,

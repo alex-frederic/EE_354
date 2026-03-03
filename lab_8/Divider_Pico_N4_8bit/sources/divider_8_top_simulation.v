@@ -44,7 +44,7 @@ module divider_8_top_simulation		(
 	// input		Sw7, Sw6, Sw5, Sw4, Sw3, Sw2, Sw1, Sw0;
 // ****** TODO  ******
 // Adjust the range of signals														 
-	input[3:0]  Xin, Yin;
+	input[7:0]  Xin, Yin;
 	input Start, Ack, Reset;
 	
 	
@@ -73,8 +73,8 @@ module divider_8_top_simulation		(
 	// wire [1:0] 	ssdscan_clk;
 // ****** TODO  ******
 // Adjust the range of signals		
-	wire [3:0] 	Xin, Yin;
-	reg  [3:0] 	Quotient, Remainder;
+	wire [7:0] 	Xin, Yin;
+	reg  [7:0] 	Quotient, Remainder;
 	wire 		Start, Ack;
 	reg 		Done, Qi, Qc, Qd;
 
@@ -211,9 +211,10 @@ module divider_8_top_simulation		(
 //   anymore as they each are 8-bit in size		  
 always @ (*)
 begin
-	case (port_id[0])
-		1'b0 : in_port <= {Xin,Yin};
-		1'b1 : in_port <= {6'b000000,Start,Ack}; 	
+	case (port_id[1:0])
+		2'b00 : in_port <= Xin;
+		2'b01 : in_port <= Yin;
+		2'b10 : in_port <= {6'b000000,Start,Ack}; 	
 		default : in_port <= 8'bXXXXXXXX ;  
 	endcase
 end	
@@ -227,8 +228,11 @@ begin
 	// 'write_strobe' is used to qualify all writes to general output ports using OUTPUT.
 	if (write_strobe == 1'b1) 
 	begin
-		if(port_id[0] == 1'b0)begin
-			{Quotient,Remainder} <= out_port;
+		if(port_id[1:0] == 2'b00)begin
+			Quotient <= out_port;
+		end	
+		else if(port_id[1:0] == 2'b01)begin
+			Remainder <= out_port;
 		end	
 	end
 	
@@ -236,7 +240,7 @@ begin
 	if (k_write_strobe == 1'b1) 
 	begin
 		// Write to output_port at port address 01
-		if (port_id[0]  == 1'b1) 
+		if (port_id[1:0]  == 2'b10) 
 		begin
 			Done <= out_port[0];
 			Qi <= out_port[1];

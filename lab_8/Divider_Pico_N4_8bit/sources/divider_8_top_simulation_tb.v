@@ -41,11 +41,11 @@ module divider_8_top_simulation_tb;
 	
 // ****** TODO  ******
 // Adjust the range of signals for Xin, Yin, Quotient, Remainder		
-	reg [3:0] Xin;
-	reg [3:0] Yin;
+	reg [7:0] Xin;
+	reg [7:0] Yin;
 
 	// Outputs - to monitor
-	wire [3:0] Quotient, Remainder;
+	wire [7:0] Quotient, Remainder;
 	wire Qi;
 	wire Qc;
 	wire Qd;
@@ -163,8 +163,8 @@ module divider_8_top_simulation_tb;
 	task APPLY_STIMULUS;
 // ****** TODO  ******
 // Adjust the range of signals for Xin_val, Yin_val 	
-		input [3:0] Xin_val;
-		input [3:0] Yin_val;
+		input [7:0] Xin_val;
+		input [7:0] Yin_val;
 		begin
 // ****** TODO  ******
 // Adjust the number of read_strobes that you want wait on		
@@ -174,6 +174,9 @@ module divider_8_top_simulation_tb;
 			// before giving a Start signal. The read-strobe is one-clock wide (page 73 of the 
 			// KCPSM6 user guide). By waiting for two clocks after the read strobe goes active high,
 			// you are sure that the strobe is over.
+			wait (read_strobe);
+			@(posedge ClkPort);
+			@(posedge ClkPort);
 			wait (read_strobe);
 			@(posedge ClkPort);
 			@(posedge ClkPort);
