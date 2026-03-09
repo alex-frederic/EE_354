@@ -77,7 +77,7 @@ UNKN   =  5'bxxxxx;
 localparam 
 // **********  TODO  **************
 // Fill-in 4'b1001 (for nine) or 4'b1010 (for ten) or 4'b1011 (for eleven) as appropriate
- Imax  = 4'b      , Jmax = 4'b      ; // Imax and Jmax for use in conditions such as (I == Imax) or (J == Jmax) .
+ Imax  = 4'b1001, Jmax = 4'b1001; // Imax and Jmax for use in conditions such as (I == Imax) or (J == Jmax) .
  
 assign {Qdone, Qc122, Qc221, Qls2c, Qini} = state;
 
@@ -110,57 +110,60 @@ always @(posedge Clk, posedge Reset) //asynchronous active_high Reset
                        
                  LS2C: // **********  TODO  **************                   
                     begin  
-					// state transitions
+						// state transitions
+						if ( (M[I][3])  &&  (I != 9) ) begin
+							state <= C221;
+						end else if (I == 9) begin
+							state <= C122;
+						end
 
+								
+						//RTL
+						if (M[I][3]) begin
+							N[J] <= M[I];
+							J <= J + 1;
+						end
 
-
-
-
-
-							
-					//RTL
-
-
-
-
-
-
-
+						if (I == 9) begin
+							I <= 0;
+						end else begin
+							I <= I + 1;
+						end
                     end
 					
                  C221: // **********  TODO  ************** 
 					begin  
-					// state transitions
+						// state transitions
+						if ( (I == Imax)  &&  (J != Jmax) ) begin
+							state <= C122;
+						end else if (J == Jmax) begin
+							state <= DONE;
+						end
 
 
+						//RTL
+						N[J] <= M[I];
+						J <= J + 1;
 
-
-
-
-
-					//RTL
-
-
-
-
-
-
-
+						if (I == Imax) begin
+							I <= 0;
+						end else begin
+							I <= I + 1;
+						end
                     end
                        
                  C122: // **********  TODO  ************** 
                     begin  
-					// state transitions
+						// state transitions
+						if (J == Jmax) begin
+							state <= DONE;
+						end
 
 
-
-
-					//RTL
-
-
-
-
-
+						//RTL
+						N[J] <= M[I];
+						J <= J + 1;
+						I <= I + 1;
                     end
                         
                  DONE:
