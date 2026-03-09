@@ -1,0 +1,438 @@
+
+*** Running vivado
+    with args -log divider_timing_top.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source divider_timing_top.tcl
+
+
+****** Vivado v2019.2 (64-bit)
+  **** SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+  **** IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source divider_timing_top.tcl -notrace
+Command: synth_design -top divider_timing_top -part xc7a100tcsg324-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a100t'
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 17888 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1039.324 ; gain = 233.406
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'divider_timing_top' [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:9]
+INFO: [Synth 8-6157] synthesizing module 'BUFGP' [C:/Xilinx/Vivado/2019.2/scripts/rt/data/unisim_comp.v:1231]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGP' (1#1) [C:/Xilinx/Vivado/2019.2/scripts/rt/data/unisim_comp.v:1231]
+INFO: [Synth 8-6157] synthesizing module 'ee201_debouncer' [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:90]
+	Parameter N_dc bound to: 25 - type: integer 
+	Parameter INI bound to: 6'b000000 
+	Parameter WQ bound to: 6'b000001 
+	Parameter SCEN_st bound to: 6'b111100 
+	Parameter WH bound to: 6'b100000 
+	Parameter MCEN_st bound to: 6'b101100 
+	Parameter CCEN_st bound to: 6'b100100 
+	Parameter MCEN_cont bound to: 6'b101101 
+	Parameter CCR bound to: 6'b100001 
+	Parameter WFCR bound to: 6'b100010 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "user" *) [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:117]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:151]
+INFO: [Synth 8-6155] done synthesizing module 'ee201_debouncer' (2#1) [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:90]
+INFO: [Synth 8-6157] synthesizing module 'divider_timing' [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:10]
+	Parameter INITIAL bound to: 3'b001 
+	Parameter COMPUTE bound to: 3'b010 
+	Parameter DONE_S bound to: 3'b100 
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:44]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:44]
+INFO: [Synth 8-6155] done synthesizing module 'divider_timing' (3#1) [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:10]
+INFO: [Synth 8-226] default block is never used [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:192]
+WARNING: [Synth 8-3848] Net Ld8 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld9 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld10 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld11 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld12 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld13 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld14 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld15 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'divider_timing_top' (4#1) [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:9]
+WARNING: [Synth 8-3917] design divider_timing_top has port MemOE driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port MemWR driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port RamCS driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port QuadSpiFlashCS driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port Dp driven by constant 0
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld8
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld9
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld10
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld11
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld12
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld13
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld14
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld15
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 1111.875 ; gain = 305.957
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1111.875 ; gain = 305.957
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 1111.875 ; gain = 305.957
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 1111.875 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc]
+WARNING: [Vivado 12-507] No nets matched 'Ld0'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:137]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld0]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:137]
+WARNING: [Vivado 12-507] No nets matched 'Ld1'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:138]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld1]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:138]
+WARNING: [Vivado 12-507] No nets matched 'Ld2'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:139]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld2]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:139]
+WARNING: [Vivado 12-507] No nets matched 'Ld3'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:140]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld3]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:140]
+WARNING: [Vivado 12-507] No nets matched 'Ld8'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:145]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld8]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:145]
+WARNING: [Vivado 12-507] No nets matched 'Ld9'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:146]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld9]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:146]
+WARNING: [Vivado 12-507] No nets matched 'Ld10'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:147]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld10]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:147]
+WARNING: [Vivado 12-507] No nets matched 'Ld11'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:148]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld11]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:148]
+WARNING: [Vivado 12-507] No nets matched 'Ld12'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:149]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld12]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:149]
+WARNING: [Vivado 12-507] No nets matched 'Ld13'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:150]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld13]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:150]
+WARNING: [Vivado 12-507] No nets matched 'Ld14'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:151]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld14]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:151]
+WARNING: [Vivado 12-507] No nets matched 'Ld15'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:152]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Ld15]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:152]
+WARNING: [Vivado 12-507] No nets matched 'Dp'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:234]
+WARNING: [Vivado 12-830] No fanout objects found for 'all_fanout -endpoints_only -flat -from [get_nets Dp]'. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:234]
+Finished Parsing XDC File [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc]
+INFO: [Project 1-236] Implementation specific constraints were found while reading constraint file [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc]. These constraints will be ignored for synthesis but will be used in implementation. Impacted constraints are listed in the file [.Xil/divider_timing_top_propImpl.xdc].
+Resolution: To avoid this warning, move constraints listed in [.Xil/divider_timing_top_propImpl.xdc] to another XDC file and exclude this new file from synthesis with the used_in_synthesis property (File Properties dialog in GUI) and re-run elaboration/synthesis.
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1194.566 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 1194.566 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1194.566 ; gain = 388.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a100tcsg324-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1194.566 ; gain = 388.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:12 ; elapsed = 00:00:14 . Memory (MB): peak = 1194.566 ; gain = 388.648
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'ee201_debouncer'
+INFO: [Synth 8-5587] ROM size for "MCEN_count" is below threshold of ROM address width. It will be mapped to LUTs
+INFO: [Synth 8-5546] ROM "debounce_count" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'divider_timing'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                     INI |                        000000001 |                           000000
+                      WQ |                        000000010 |                           000001
+                 SCEN_st |                        000000100 |                           111100
+                      WH |                        000001000 |                           100000
+                 MCEN_st |                        000010000 |                           101100
+                 CCEN_st |                        000100000 |                           100100
+               MCEN_cont |                        001000000 |                           101101
+                     CCR |                        010000000 |                           100001
+                    WFCR |                        100000000 |                           100010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'ee201_debouncer'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+*
+                 INITIAL |                              001 |                              001
+                 COMPUTE |                              010 |                              010
+                  DONE_S |                              100 |                              100
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3898] No Re-encoding of one hot register 'state_reg' in module 'divider_timing'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:13 ; elapsed = 00:00:14 . Memory (MB): peak = 1194.566 ; gain = 388.648
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     25 Bit       Adders := 1     
+	   3 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               25 Bit    Registers := 1     
+	                8 Bit    Registers := 3     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   9 Input     25 Bit        Muxes := 1     
+	   9 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 5     
+	   4 Input      8 Bit        Muxes := 2     
+	   9 Input      6 Bit        Muxes := 1     
+	   9 Input      4 Bit        Muxes := 1     
+	   4 Input      3 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 4     
+	   9 Input      1 Bit        Muxes := 3     
+	   4 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module ee201_debouncer 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     25 Bit       Adders := 1     
+	   2 Input      4 Bit       Adders := 1     
++---Registers : 
+	               25 Bit    Registers := 1     
+	                4 Bit    Registers := 1     
++---Muxes : 
+	   9 Input     25 Bit        Muxes := 1     
+	   9 Input      9 Bit        Muxes := 1     
+	   2 Input      9 Bit        Muxes := 5     
+	   9 Input      6 Bit        Muxes := 1     
+	   9 Input      4 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 3     
+	   9 Input      1 Bit        Muxes := 3     
+Module divider_timing 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input      8 Bit       Adders := 1     
+	   2 Input      8 Bit       Adders := 1     
++---Registers : 
+	                8 Bit    Registers := 3     
++---Muxes : 
+	   4 Input      8 Bit        Muxes := 2     
+	   4 Input      3 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 240 (col length:80)
+BRAMs: 270 (col length: RAMB18 80 RAMB36 40)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3917] design divider_timing_top has port MemOE driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port MemWR driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port RamCS driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port QuadSpiFlashCS driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port Dp driven by constant 0
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld8
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld9
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld10
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld11
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld12
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld13
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld14
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld15
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1194.566 ; gain = 388.648
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 1194.566 ; gain = 388.648
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1214.883 ; gain = 408.965
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:23 ; elapsed = 00:00:25 . Memory (MB): peak = 1216.203 ; gain = 410.285
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |CARRY4 |    15|
+|2     |LUT1   |     3|
+|3     |LUT2   |    13|
+|4     |LUT3   |    24|
+|5     |LUT4   |    25|
+|6     |LUT5   |     9|
+|7     |LUT6   |    14|
+|8     |MUXF7  |     4|
+|9     |FDCE   |    31|
+|10    |FDPE   |     2|
+|11    |FDRE   |    53|
+|12    |BUFGP  |     1|
+|13    |IBUF   |    22|
+|14    |OBUF   |    28|
+|15    |OBUFT  |     8|
++------+-------+------+
+
+Report Instance Areas: 
++------+--------------------+----------------+------+
+|      |Instance            |Module          |Cells |
++------+--------------------+----------------+------+
+|1     |top                 |                |   252|
+|2     |  divider           |divider_timing  |    86|
+|3     |  ee201_debouncer_1 |ee201_debouncer |    67|
++------+--------------------+----------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:27 ; elapsed = 00:00:29 . Memory (MB): peak = 1221.988 ; gain = 416.070
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 13 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:19 ; elapsed = 00:00:27 . Memory (MB): peak = 1221.988 ; gain = 333.379
+Synthesis Optimization Complete : Time (s): cpu = 00:00:27 ; elapsed = 00:00:30 . Memory (MB): peak = 1221.988 ; gain = 416.070
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1221.988 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1237.883 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+INFO: [Common 17-83] Releasing license: Synthesis
+33 Infos, 60 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:33 ; elapsed = 00:01:00 . Memory (MB): peak = 1237.883 ; gain = 731.305
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1237.883 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1/divider_timing_part1.runs/synth_1/divider_timing_top.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file divider_timing_top_utilization_synth.rpt -pb divider_timing_top_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Mar 29 21:22:05 2020...

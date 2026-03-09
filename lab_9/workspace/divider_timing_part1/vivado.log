@@ -1,0 +1,194 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Fri Oct  9 14:20:57 2020
+# Process ID: 20720
+# Current directory: C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3104 C:\Xilinx_projects\ee354l_divider_timing\workspace\divider_timing_part1\divider_timing_part1.xpr
+# Log file: C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1/vivado.log
+# Journal file: C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1/divider_timing_part1.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:29 ; elapsed = 00:00:13 . Memory (MB): peak = 671.789 ; gain = 51.438
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a100tcsg324-1
+INFO: [Device 21-403] Loading part xc7a100tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1010.387 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc]
+INFO: [Timing 38-35] Done setting XDC timing constraints. [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc:137]
+all_registers: Time (s): cpu = 00:00:20 ; elapsed = 00:00:20 . Memory (MB): peak = 1698.395 ; gain = 582.062
+Finished Parsing XDC File [C:/Xilinx_projects/ee354l_divider_timing/src/ee354_divider_top.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1698.395 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+open_run: Time (s): cpu = 00:01:01 ; elapsed = 00:01:10 . Memory (MB): peak = 1708.199 ; gain = 963.422
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.007 . Memory (MB): peak = 1770.074 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.101 . Memory (MB): peak = 1934.066 ; gain = 0.000
+Restored from archive | CPU: 1.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.102 . Memory (MB): peak = 1934.066 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1934.066 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+open_run: Time (s): cpu = 00:00:14 ; elapsed = 00:00:08 . Memory (MB): peak = 2006.312 ; gain = 240.996
+close_design
+synth_design -rtl -name rtl_1 -rtl_skip_constraints
+Command: synth_design -rtl -name rtl_1 -rtl_skip_constraints
+Starting synth_design
+Using part: xc7a100tcsg324-1
+Top: divider_timing_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:16 ; elapsed = 00:00:16 . Memory (MB): peak = 2036.844 ; gain = 0.000
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'divider_timing_top' [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:9]
+INFO: [Synth 8-6157] synthesizing module 'BUFGP' [C:/Xilinx/Vivado/2019.2/scripts/rt/data/unisim_comp.v:1231]
+INFO: [Synth 8-6155] done synthesizing module 'BUFGP' (1#1) [C:/Xilinx/Vivado/2019.2/scripts/rt/data/unisim_comp.v:1231]
+INFO: [Synth 8-6157] synthesizing module 'ee201_debouncer' [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:90]
+	Parameter N_dc bound to: 25 - type: integer 
+	Parameter INI bound to: 6'b000000 
+	Parameter WQ bound to: 6'b000001 
+	Parameter SCEN_st bound to: 6'b111100 
+	Parameter WH bound to: 6'b100000 
+	Parameter MCEN_st bound to: 6'b101100 
+	Parameter CCEN_st bound to: 6'b100100 
+	Parameter MCEN_cont bound to: 6'b101101 
+	Parameter CCR bound to: 6'b100001 
+	Parameter WFCR bound to: 6'b100010 
+INFO: [Synth 8-5534] Detected attribute (* fsm_encoding = "user" *) [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:117]
+INFO: [Synth 8-155] case statement is not full and has no default [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:151]
+INFO: [Synth 8-6155] done synthesizing module 'ee201_debouncer' (2#1) [C:/Xilinx_projects/ee354l_divider_timing/src/ee201_debounce_DPB_SCEN_CCEN_MCEN.v:90]
+INFO: [Synth 8-6157] synthesizing module 'divider_timing' [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:10]
+	Parameter INITIAL bound to: 3'b001 
+	Parameter COMPUTE bound to: 3'b010 
+	Parameter DONE_S bound to: 3'b100 
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma parallel_case detected. Simulation mismatch may occur [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:44]
+INFO: [Synth 8-3536] HDL ADVISOR - Pragma full_case detected. Simulation mismatch may occur [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:44]
+INFO: [Synth 8-6155] done synthesizing module 'divider_timing' (3#1) [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_part1.v:10]
+INFO: [Synth 8-226] default block is never used [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:192]
+WARNING: [Synth 8-3848] Net Ld8 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld9 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld10 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld11 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld12 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld13 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld14 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+WARNING: [Synth 8-3848] Net Ld15 in module/entity divider_timing_top does not have driver. [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'divider_timing_top' (4#1) [C:/Xilinx_projects/ee354l_divider_timing/src/divider_timing_top_with_single_step.v:9]
+WARNING: [Synth 8-3917] design divider_timing_top has port MemOE driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port MemWR driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port RamCS driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port QuadSpiFlashCS driven by constant 1
+WARNING: [Synth 8-3917] design divider_timing_top has port Dp driven by constant 0
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld8
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld9
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld10
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld11
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld12
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld13
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld14
+WARNING: [Synth 8-3331] design divider_timing_top has unconnected port Ld15
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:19 ; elapsed = 00:00:20 . Memory (MB): peak = 2036.844 ; gain = 0.000
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2041.469 ; gain = 4.625
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:21 ; elapsed = 00:00:22 . Memory (MB): peak = 2041.469 ; gain = 4.625
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.012 . Memory (MB): peak = 2041.469 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 1 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2049.453 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:30 ; elapsed = 00:00:28 . Memory (MB): peak = 2049.453 ; gain = 12.609
+17 Infos, 21 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:30 ; elapsed = 00:00:28 . Memory (MB): peak = 2049.453 ; gain = 12.609
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 2058.102 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2019.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+Reading XDEF placement.
+Reading placer database...
+Reading XDEF routing.
+Read XDEF File: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 2184.277 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.059 . Memory (MB): peak = 2184.277 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2184.277 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 1 instances were transformed.
+  BUFGP => BUFGP (BUFG, IBUF): 1 instance 
+
+open_run: Time (s): cpu = 00:00:10 ; elapsed = 00:00:05 . Memory (MB): peak = 2241.066 ; gain = 183.559
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+report_clock_networks -name {network_1}
+report_clock_interaction -delay_type min_max -significant_digits 3 -name timing_2
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+show_objects -name find_1worst [get_cells -hierarchical -filter { PRIMITIVE_TYPE =~ CARRY.*.* } ]
+close_project
+close_project: Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 2432.414 ; gain = 0.000
+open_project C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part3/divider_timing_part3.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/Xilinx/Vivado/2019.2/data/ip'.
+open_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:07 . Memory (MB): peak = 2432.414 ; gain = 0.000
+update_compile_order -fileset sources_1
+set_property OPTIONS.max_paths {1} [get_report_config -of_objects [get_runs impl_1] {impl_1_route_report_timing_summary_0}]
+set_property OPTIONS.max_paths {10} [get_report_config -of_objects [get_runs impl_1] {impl_1_route_report_timing_summary_0}]
+exit
+INFO: [Common 17-206] Exiting Vivado at Sun Oct 11 22:50:29 2020...

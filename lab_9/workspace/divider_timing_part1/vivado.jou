@@ -1,0 +1,28 @@
+#-----------------------------------------------------------
+# Vivado v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:40:23 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Fri Oct  9 14:20:57 2020
+# Process ID: 20720
+# Current directory: C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent3104 C:\Xilinx_projects\ee354l_divider_timing\workspace\divider_timing_part1\divider_timing_part1.xpr
+# Log file: C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1/vivado.log
+# Journal file: C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1\vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part1/divider_timing_part1.xpr
+update_compile_order -fileset sources_1
+open_run synth_1 -name synth_1
+open_run impl_1
+close_design
+synth_design -rtl -name rtl_1 -rtl_skip_constraints
+open_run impl_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+report_clock_networks -name {network_1}
+report_clock_interaction -delay_type min_max -significant_digits 3 -name timing_2
+show_objects -name find_1worst [get_cells -hierarchical -filter { PRIMITIVE_TYPE =~ CARRY.*.* } ]
+close_project
+open_project C:/Xilinx_projects/ee354l_divider_timing/workspace/divider_timing_part3/divider_timing_part3.xpr
+update_compile_order -fileset sources_1
+set_property OPTIONS.max_paths {1} [get_report_config -of_objects [get_runs impl_1] {impl_1_route_report_timing_summary_0}]
+set_property OPTIONS.max_paths {10} [get_report_config -of_objects [get_runs impl_1] {impl_1_route_report_timing_summary_0}]
