@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../detour_project.srcs/sources_1/ip/ila_Racheal_Dheeraj/sim/ila_Racheal_Dheeraj.vhd" \
+
+nosort

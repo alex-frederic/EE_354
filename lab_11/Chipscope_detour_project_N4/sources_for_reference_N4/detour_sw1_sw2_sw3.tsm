@@ -1,0 +1,58 @@
+##################################################
+#
+# For info on creating trigger state machines:
+#   1) In the main Vivado menu bar, select
+#      Window > Language Templates
+#   2) In the Templates window, select
+#      Debug > Trigger State Machine
+#   3) Refer to the entry 'Info' for an overview
+#      of the trigger state machine language.
+#
+# More information can be found in this document:
+#
+#   Vivado Design Suite User Guide: Programming
+#   and Debugging (UG908)
+#
+##################################################
+state Waiting_for_SW1_ON:
+    if (ILA_sw1 == 1'b1) then
+        goto Waiting_for_SW1_OFF;
+    else 
+        goto Waiting_for_SW1_ON;
+    endif
+
+state Waiting_for_SW1_OFF:
+    if (ILA_sw1 == 1'b0) then
+        goto Waiting_for_SW2_ON;
+    else 
+        goto Waiting_for_SW1_OFF;
+    endif
+    
+state Waiting_for_SW2_ON:
+    if (ILA_sw2 == 1'b1) then
+        goto Waiting_for_SW2_OFF;
+    else 
+        goto Waiting_for_SW2_ON;
+    endif
+    
+state Waiting_for_SW2_OFF:
+    if (ILA_sw2 == 1'b0) then
+        goto Waiting_for_SW3_ON;
+    else 
+        goto Waiting_for_SW2_OFF;
+    endif
+    
+state Waiting_for_SW3_ON:
+    if (ILA_sw3 == 1'b1) then
+        goto Waiting_for_SW3_OFF;
+    else 
+        goto Waiting_for_SW3_ON;
+    endif
+    
+state Waiting_for_SW3_OFF:
+    if ((ILA_sw3 == 1'b0) && (ILA_Capture_Qualification == 1'b1)) then
+        trigger;
+    else 
+        goto Waiting_for_SW3_OFF;
+    endif
+    
