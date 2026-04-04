@@ -1,0 +1,39 @@
+EE354 Project Guide
+
+Updated on 11/11/2024
+
+The EE354 project involves building some sort of cool digital design using the provided A7 FPGAs. This design can use any of the available I/O, including but not limited to: Switches, LEDs, SSDs, buttons, VGA, USB (keyboard, mouse, etc.), Ethernet, pin headers, temperature sensor, accelerometer, microphone, and mono audio. Although there are many input output modes available, please note that most projects only use the switches, LEDs, SSDs, buttons, and/or VGA to interface with the outside world.
+
+The design itself can basically be anything that you can think to use an FPGA for. Almost all projects are VGA output games (snake, tetris, pacman, 2048, space invaders, flappy bird, etc.), since that is what the skeleton code provides. It is not required to be this though, you could also implement some algorithms such as matrix multiplication, FFT, or HFT algorithms and then write a testbench to check its correctness and then measure its performance on the board (# clock cycles, resources utilized, energy, etc).
+
+We provide skeleton code which you can build your project on top of, linked below in EE354_vga_demo.zip. A guide to the skeleton code is linked below in "VGA Demo.docx". An explanation of how the code works is also provided in "VGA_tutorial_1__1_.avi".
+
+EE354_vga_demo.zip
+VGA Demo.docx
+
+VGA_tutorial_1__1_.avi
+
+
+The project itself will be graded holistically on a 10 point scale. There is no clear-cut rubric, the grades will be assigned based off of how impressive and complete we judge your project to be. Extra credit is available to teams who go the extra mile, up to 2 points extra for a max of 12/10.
+
+You will demo your project to your peers and TA in your lab section on the last week of classes (Dec 3rd - 5th). There will be a write-up due after that, further details on that will be released later.
+
+-Notes-
+
+Since nowadays VGA monitors are no longer commonplace, it can be useful to buy a VGA to HDMI adapter (and a HDMI cable if you don't have one). This allows you to develop and debug your game on any HDMI monitor or TV. A guide to buying adapters is linked below:
+
+EE354L_VGA_to_HDMI_Adapter.pdf
+
+
+If you are interested in displaying complex images and/or GIFs through the VGA interface in your project, you may want to look at the ee354_optimized_sprite_script.py. The script is explained by Fall23 Lab Mentor Munir Bshara, in the corresponding video EE354SpriteGeneration.mp4.
+
+ee354_optimized_sprite_script.py
+
+EE354SpriteGeneration.mp4
+
+Reference links for the sprite script:
+https://embeddedthoughts.com/2016/07/30/storing-image-data-in-block-ram-on-a-xilinx-fpga/
+https://ezgif.com
+
+Arda
+acaliska@usc.edu
