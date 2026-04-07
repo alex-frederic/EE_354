@@ -5,6 +5,7 @@
 *.mti
 *.mpf
 *.wlf
+*.docx#
 
 # Files
 **/transcript
