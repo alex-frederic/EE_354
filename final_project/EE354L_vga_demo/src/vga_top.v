@@ -1,15 +1,25 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Company: EE354
-// Engineer: Arda Caliskan
+// Company: 
+// Engineer: 
 // 
 // Create Date:    12:18:00 12/14/2017 
 // Design Name: 
 // Module Name:    vga_top 
+// Project Name: 
+// Target Devices: 
+// Tool versions: 
+// Description: 
 //
-// Date: 11/11/2024
-// Author: Arda Caliskan
-// Description: Port from NEXYS4 to A7
+// Dependencies: 
+//
+// Revision: 
+// Revision 0.01 - File Created
+// Additional Comments: 
+//
+// Date: 04/04/2020
+// Author: Yue (Julien) Niu
+// Description: Port from NEXYS3 to NEXYS4
 //////////////////////////////////////////////////////////////////////////////////
 module vga_top(
 	input ClkPort,
@@ -24,7 +34,7 @@ module vga_top(
 	output An0, An1, An2, An3, An4, An5, An6, An7,
 	output Ca, Cb, Cc, Cd, Ce, Cf, Cg, Dp,
 	
-	output QuadSpiFlashCS
+	output MemOE, MemWR, RamCS, QuadSpiFlashCS
 	);
 	
 	wire bright;
@@ -46,7 +56,7 @@ module vga_top(
 	assign vgaG = rgb[7  : 4];
 	assign vgaB = rgb[3  : 0];
 	
-	// disable memory port
-	assign {QuadSpiFlashCS} = 1'b1;
+	// disable mamory ports
+	assign {MemOE, MemWR, RamCS, QuadSpiFlashCS} = 4'b1111;
 
 endmodule
