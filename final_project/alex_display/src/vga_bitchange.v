@@ -109,7 +109,7 @@ module vga_bitchange(
 		reg y_overlap;
 
 
-		y_overlap = vcount >= 395 && vCount <= 434; // 40 tall centered on 379 & 380
+		y_overlap = vCount >= 395 && vCount <= 434; // 40 tall centered on 379 & 380
 
 
 		x_overlap_1 = hCount >= 252 && hCount <= 291; // 40 wide centered on 127 & 128
@@ -136,7 +136,7 @@ module vga_bitchange(
 		end else if (shield_present) begin
 			rgb = GREEN;
 		end else if (ship_present) begin
-			rgb = GREEN
+			rgb = GREEN;
 		end else begin
 			rgb = RED; // background color
 		end
