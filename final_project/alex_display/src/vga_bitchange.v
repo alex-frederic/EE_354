@@ -97,8 +97,7 @@ module vga_bitchange(
 	end
 
 
-	// hCount > 10'd143 && hCount < 10'd784 && vCount > 10'd34 && vCount < 10'd516
-	// x in [144, 783] & y in [35, 515]
+	// x in [144, 783] & y in [35, 514]
 
 	always @ (*) begin : PLOT_SHIELDS
 		reg x_overlap_1;
@@ -111,16 +110,11 @@ module vga_bitchange(
 
 		y_overlap = vCount >= 395 && vCount <= 434; // 40 tall centered on 379 & 380
 
-
-		// x_overlap_1 = hCount >= 253 && hCount <= 292; // 40 wide centered on 127 & 128
-		// x_overlap_2 = hCount >= 381 && hCount <= 420; // 40 wide centered on 255 & 256
-		// x_overlap_3 = hCount >= 509 && hCount <= 548; // 40 wide centered on 383 & 384
-		// x_overlap_4 = hCount >= 636 && hCount <= 676; // 40 wide centered on 511 & 512
 		
-		x_overlap_1 = hCount >= 233 && hCount <= 312; // 40 wide centered on 127 & 128
-		x_overlap_2 = hCount >= 361 && hCount <= 440; // 40 wide centered on 255 & 256
-		x_overlap_3 = hCount >= 489 && hCount <= 568; // 40 wide centered on 383 & 384
-		x_overlap_4 = hCount >= 616 && hCount <= 696; // 40 wide centered on 511 & 512
+		x_overlap_1 = hCount >= 232 && hCount <= 311; // 80 wide centered on 127 & 128
+		x_overlap_2 = hCount >= 360 && hCount <= 439; // 80 wide centered on 255 & 256
+		x_overlap_3 = hCount >= 488 && hCount <= 567; // 80 wide centered on 383 & 384
+		x_overlap_4 = hCount >= 615 && hCount <= 695; // 80 wide centered on 511 & 512
 
 		x_overlap = x_overlap_1 | x_overlap_2 | x_overlap_3 | x_overlap_4;
 
@@ -148,6 +142,7 @@ module vga_bitchange(
 		
 		// These are real corners of display! Update bright signal!
 		// However, hCount=144 & vCount=35 are only partially visible!
+		// x in [144, 783] & y in [35, 514]
 		if (hCount==144) begin
 			rgb = BLUE;
 		end else if (hCount==783) begin
