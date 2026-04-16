@@ -64,7 +64,7 @@ module vga_bitchange(
 	assign alien_x = 10'd224;
 	assign alien_y = 10'd85;
 	assign ship_x = 10'd300;
-	assign ship_y = 10'd435;
+	assign ship_y = 10'd465;
 
 
 	always @ (*) begin : PLOT_ALIENS
@@ -84,8 +84,8 @@ module vga_bitchange(
 		in_block = in_x_range && in_y_range;
 
 
-		wrapped_x = (hCount - alien_x) % (GROUP_WIDTH + X_SPACING);
-		wrapped_y = (vCount - alien_y) % (GROUP_HEIGHT + Y_SPACING);
+		wrapped_x = (hCount - alien_x) % (ALIEN_WIDTH + X_SPACING);
+		wrapped_y = (vCount - alien_y) % (ALIEN_HEIGHT + Y_SPACING);
 
 		alien_overlap_x = wrapped_x < ALIEN_WIDTH;
 		alien_overlap_y = wrapped_y < ALIEN_HEIGHT;
@@ -112,15 +112,20 @@ module vga_bitchange(
 		y_overlap = vCount >= 395 && vCount <= 434; // 40 tall centered on 379 & 380
 
 
-		x_overlap_1 = hCount >= 252 && hCount <= 291; // 40 wide centered on 127 & 128
-		x_overlap_2 = hCount >= 380 && hCount <= 419; // 40 wide centered on 255 & 256
-		x_overlap_3 = hCount >= 508 && hCount <= 547; // 40 wide centered on 383 & 384
-		x_overlap_3 = hCount >= 635 && hCount <= 675; // 40 wide centered on 511 & 512
+		// x_overlap_1 = hCount >= 253 && hCount <= 292; // 40 wide centered on 127 & 128
+		// x_overlap_2 = hCount >= 381 && hCount <= 420; // 40 wide centered on 255 & 256
+		// x_overlap_3 = hCount >= 509 && hCount <= 548; // 40 wide centered on 383 & 384
+		// x_overlap_4 = hCount >= 636 && hCount <= 676; // 40 wide centered on 511 & 512
+		
+		x_overlap_1 = hCount >= 233 && hCount <= 312; // 40 wide centered on 127 & 128
+		x_overlap_2 = hCount >= 361 && hCount <= 440; // 40 wide centered on 255 & 256
+		x_overlap_3 = hCount >= 489 && hCount <= 568; // 40 wide centered on 383 & 384
+		x_overlap_4 = hCount >= 616 && hCount <= 696; // 40 wide centered on 511 & 512
 
 		x_overlap = x_overlap_1 | x_overlap_2 | x_overlap_3 | x_overlap_4;
 
 
-		shield_present = x_overlap && x_overlap;
+		shield_present = x_overlap && y_overlap;
 	end
 
 	always @ (*) begin : PLOT_SHIP
@@ -138,7 +143,33 @@ module vga_bitchange(
 		end else if (ship_present) begin
 			rgb = GREEN;
 		end else begin
-			rgb = RED; // background color
+			rgb = BLACK; // background color
+		end
+		
+		// These are real corners of display! Update bright signal!
+		// However, hCount=144 & vCount=35 are only partially visible!
+		if (hCount==144) begin
+			rgb = BLUE;
+		end else if (hCount==783) begin
+			rgb = BLUE;
+		end
+		
+		if (hCount==143 || hCount==145) begin
+			rgb = RED;
+		end else if (hCount==782 || hCount==784) begin
+			rgb = RED;
+		end
+		
+		if (vCount==35) begin
+			rgb = BLUE;
+		end else if (vCount==514) begin
+			rgb = BLUE;
+		end
+		
+		if (vCount==34 || vCount==36) begin
+			rgb = RED;
+		end else if (vCount==513 || vCount==515) begin
+			rgb = RED;
 		end
 	end
 
