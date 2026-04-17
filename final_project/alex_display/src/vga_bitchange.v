@@ -55,6 +55,9 @@ module vga_bitchange(
 	wire [9:0] ship_y;
 
 
+	wire [10:0] aliens_alive[4:0];
+
+
 	reg alien_present;
 	reg shield_present;
 	reg ship_present;
@@ -66,6 +69,12 @@ module vga_bitchange(
 	assign ship_x = 10'd300;
 	assign ship_y = 10'd465;
 
+	assign aliens_alive[0] = 11'b01111111111;
+	assign aliens_alive[1] = 11'b11111111100;
+	assign aliens_alive[2] = 11'b11101111011;
+	assign aliens_alive[3] = 11'b11111001111;
+	assign aliens_alive[4] = 11'b11111111111;
+
 
 	always @ (*) begin : PLOT_ALIENS
 		reg in_x_range;
@@ -76,6 +85,9 @@ module vga_bitchange(
 		reg alien_overlap_x;
 		reg alien_overlap_y;
 		reg alien_overlap;
+		reg [2:0] alien_col;
+		reg [2:0] alien_row;
+		reg live_alien;
 
 
 		in_x_range = (hCount >= alien_x)  &&  (hCount < alien_x + GROUP_WIDTH);
@@ -93,7 +105,12 @@ module vga_bitchange(
 		alien_overlap = alien_overlap_x && alien_overlap_y;
 
 
-		alien_present = in_block && alien_overlap;
+		alien_col = (hCount - alien_x) / (ALIEN_WIDTH + X_SPACING);
+		alien_row = (vCount - alien_y) / (ALIEN_HEIGHT + Y_SPACING);
+		live_alien = aliens_alive[alien_row][alien_col];
+
+
+		alien_present = live_alien && in_block && alien_overlap;
 	end
 
 
