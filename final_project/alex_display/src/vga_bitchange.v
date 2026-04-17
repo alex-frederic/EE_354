@@ -29,21 +29,21 @@ module vga_bitchange(
 	output reg [15:0] score
 );
 	
-	parameter BLACK = 12'b0000_0000_0000;
-	parameter WHITE = 12'b1111_1111_1111;
-	parameter RED   = 12'b1111_0000_0000;
-	parameter GREEN = 12'b0000_1111_0000;
-	parameter BLUE  = 12'b0000_0000_1111;
+	localparam BLACK = 12'b0000_0000_0000;
+	localparam WHITE = 12'b1111_1111_1111;
+	localparam RED   = 12'b1111_0000_0000;
+	localparam GREEN = 12'b0000_1111_0000;
+	localparam BLUE  = 12'b0000_0000_1111;
 
-	parameter ALIEN_WIDTH = 10'd36;
-	parameter ALIEN_HEIGHT = 10'd24;
-	parameter X_SPACING = 10'd5;
-	parameter Y_SPACING = 10'd2;
-	parameter GROUP_WIDTH = (11*ALIEN_WIDTH + 10*X_SPACING);
-	parameter GROUP_HEIGHT = (5*ALIEN_HEIGHT + 4*Y_SPACING);
+	localparam ALIEN_WIDTH = 36;
+	localparam ALIEN_HEIGHT = 24;
+	localparam X_SPACING = 5;
+	localparam Y_SPACING = 2;
+	localparam GROUP_WIDTH = (11*ALIEN_WIDTH + 10*X_SPACING);
+	localparam GROUP_HEIGHT = (5*ALIEN_HEIGHT + 4*Y_SPACING);
 
-	parameter SHIP_WIDTH = 10'd20;
-	parameter SHIP_HEIGHT = 10'd5;
+	localparam SHIP_WIDTH = 20;
+	localparam SHIP_HEIGHT = 5;
 
 
 
@@ -107,18 +107,26 @@ module vga_bitchange(
 		reg x_overlap;
 		reg y_overlap;
 
+		localparam shield_y = 395;
+		localparam shield_height = 40;
 
-		y_overlap = vCount >= 395 && vCount <= 434; // 40 tall centered on 379 & 380
+		localparam shield_1_x = 232;
+		localparam shield_2_x = 360;
+		localparam shield_3_x = 488;
+		localparam shield_4_x = 615;
+		localparam shield_width = 80;
+
+
+		y_overlap = (vCount >= shield_y)  &&  (vCount < shield_y + shield_height); // 40 tall centered on 379 & 380
 
 		
-		x_overlap_1 = hCount >= 232 && hCount <= 311; // 80 wide centered on 127 & 128
-		x_overlap_2 = hCount >= 360 && hCount <= 439; // 80 wide centered on 255 & 256
-		x_overlap_3 = hCount >= 488 && hCount <= 567; // 80 wide centered on 383 & 384
-		x_overlap_4 = hCount >= 615 && hCount <= 695; // 80 wide centered on 511 & 512
+		x_overlap_1 = hCount >= shield_1_x  &&  hCount < shield_1_x + shield_width; // 80 wide centered on 127 & 128
+		x_overlap_2 = hCount >= shield_2_x  &&  hCount < shield_2_x + shield_width; // 80 wide centered on 255 & 256
+		x_overlap_3 = hCount >= shield_3_x  &&  hCount < shield_3_x + shield_width; // 80 wide centered on 383 & 384
+		x_overlap_4 = hCount >= shield_4_x  &&  hCount < shield_4_x + shield_width; // 80 wide centered on 511 & 512
+
 
 		x_overlap = x_overlap_1 | x_overlap_2 | x_overlap_3 | x_overlap_4;
-
-
 		shield_present = x_overlap && y_overlap;
 	end
 
