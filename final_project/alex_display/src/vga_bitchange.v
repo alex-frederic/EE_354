@@ -45,7 +45,7 @@ module vga_bitchange(
 	localparam SHIP_WIDTH = 20;
 	localparam SHIP_HEIGHT = 5;
 
-	localparam LASER_X_BOUND = 2; // For a LASER_WIDTH of 2*LASER_X_BOUND + 1
+	localparam LASER_X_BOUND = 1; // For a LASER_WIDTH of 2*LASER_X_BOUND + 1
 	localparam LASER_HEIGHT = 10;
 
 
