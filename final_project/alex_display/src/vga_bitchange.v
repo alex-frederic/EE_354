@@ -93,7 +93,7 @@ module vga_bitchange(
 		reg alien_overlap_x;
 		reg alien_overlap_y;
 		reg alien_overlap;
-		reg [2:0] alien_col;
+		reg [3:0] alien_col;
 		reg [2:0] alien_row;
 		reg live_alien;
 
