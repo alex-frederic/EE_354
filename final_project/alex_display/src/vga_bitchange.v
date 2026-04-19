@@ -168,11 +168,11 @@ module vga_bitchange(
 		reg hit_alien_laser;
 		
 		
-		in_ship_x = (hCount >= ship_laser_x - LASER_X_BOUND)  &&  (hCount <= ship_laser_x - LASER_X_BOUND);
+		in_ship_x = (hCount >= ship_laser_x - LASER_X_BOUND)  &&  (hCount <= ship_laser_x + LASER_X_BOUND);
 		in_ship_y = (vCount >= ship_laser_y)  &&  (vCount < ship_laser_y + LASER_HEIGHT);
 		hit_ship_laser = in_ship_x && in_ship_y;
 
-		in_alien_x = (hCount >= alien_laser_x - LASER_X_BOUND)  &&  (hCount <= alien_laser_x - LASER_X_BOUND);
+		in_alien_x = (hCount >= alien_laser_x - LASER_X_BOUND)  &&  (hCount <= alien_laser_x + LASER_X_BOUND);
 		in_alien_y = (vCount > alien_laser_y - LASER_HEIGHT)  &&  (vCount <= alien_laser_y);
 		hit_alien_laser = in_alien_x && in_alien_y;
 		
