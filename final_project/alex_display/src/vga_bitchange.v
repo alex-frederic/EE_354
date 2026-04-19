@@ -45,29 +45,37 @@ module vga_bitchange(
 	localparam SHIP_WIDTH = 20;
 	localparam SHIP_HEIGHT = 5;
 
+	localparam LASER_X_BOUND = 2; // For a LASER_WIDTH of 2*LASER_X_BOUND + 1
+	localparam LASER_HEIGHT = 10;
+
 
 
 	wire [9:0] alien_x;
 	wire [9:0] alien_y;
-
+	wire [10:0] aliens_alive[4:0];
+	wire [9:0] alien_laser_x;
+	wire [9:0] aliend_laser_y;
 
 	wire [9:0] ship_x;
 	wire [9:0] ship_y;
-
-
-	wire [10:0] aliens_alive[4:0];
+	wire [9:0] ship_laser_x;
+	wire [9:0] ship_laser_y;
 
 
 	reg alien_present;
 	reg shield_present;
 	reg ship_present;
-
+	reg laser_present;
 
 
 	assign alien_x = 10'd224;
 	assign alien_y = 10'd85;
+	assign alien_laser_x = 10'd345;
+	assign alien_laser_y = 10'd365;
 	assign ship_x = 10'd300;
 	assign ship_y = 10'd465;
+	assign ship_laser_x = 10'd330;
+	assign ship_laser_y = 10'420;
 
 	assign aliens_alive[0] = 11'b01111111111;
 	assign aliens_alive[1] = 11'b11111111100;
@@ -150,11 +158,35 @@ module vga_bitchange(
 	always @ (*) begin : PLOT_SHIP
 		ship_present = (hCount >= ship_x)  &&  (hCount < ship_x + SHIP_WIDTH)  &&  (vCount >= ship_y)  &&  (vCount < ship_y + SHIP_HEIGHT);
 	end
+
+	always @(*) begin : PLOT_LASERS
+		reg in_ship_x;
+		reg in_ship_y;
+		reg hit_ship_laser;
+		reg in_alien_x;
+		reg in_alien_y;
+		reg hit_alien_laser;
+		
+		
+		in_ship_x = (hCount >= ship_laser_x - LASER_X_BOUND)  &&  (hCount <= ship_laser_x - LASER_X_BOUND);
+		in_ship_y = (vCount >= ship_laser_y)  &&  (vCount < ship_laser_y + LASER_HEIGHT);
+		hit_ship_laser = in_ship_x && in_ship_y;
+
+		in_alien_x = (hCount >= alien_laser_x - LASER_X_BOUND)  &&  (hCount <= alien_laser_x - LASER_X_BOUND);
+		in_alien_y = (vCount > alien_laser_y - LASER_HEIGHT)  &&  (vCount <= alien_laser_y);
+		hit_alien_laser = in_alien_x && in_alien_y;
+		
+		laser_present = hit_ship_laser || hit_alien_laser;
+	end
 	
 	
 	always@ (*) begin : ASSIGN_COLORS
     	if (~bright) begin
 			rgb = BLACK;
+		end else if ((hCount==ship_laser_x)&&(vCount==ship_laser_y) || (hCount==alien_laser_x)&&(vCount==alien_laser_y)) begin
+			rgb = BLUE; // Plot laser draw points in blue for debugging purposes
+		end else if (laser_present) begin
+			rgb = WHITE;
 		end else if (alien_present) begin
 			rgb = WHITE;
 		end else if (shield_present) begin
