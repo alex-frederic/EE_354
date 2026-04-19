@@ -75,7 +75,7 @@ module vga_bitchange(
 	assign ship_x = 10'd300;
 	assign ship_y = 10'd465;
 	assign ship_laser_x = 10'd330;
-	assign ship_laser_y = 10'420;
+	assign ship_laser_y = 10'd420;
 
 	assign aliens_alive[0] = 11'b01111111111;
 	assign aliens_alive[1] = 11'b11111111100;
