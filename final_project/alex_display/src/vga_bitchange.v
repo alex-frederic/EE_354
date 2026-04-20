@@ -54,7 +54,7 @@ module vga_bitchange(
 	wire [9:0] alien_y;
 	wire [10:0] aliens_alive[4:0];
 	wire [9:0] alien_laser_x;
-	wire [9:0] aliend_laser_y;
+	wire [9:0] alien_laser_y;
 
 	wire [9:0] ship_x;
 	wire [9:0] ship_y;
