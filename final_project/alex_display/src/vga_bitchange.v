@@ -25,6 +25,9 @@ module vga_bitchange(
 	input clk,
 	input bright,
 	input [9:0] hCount, vCount,
+	// control buttons forwarded from top
+	input btnA,
+	input btnB,
 	output reg [11:0] rgb,
 	output reg [15:0] score
 );
@@ -50,9 +53,11 @@ module vga_bitchange(
 
 
 
+	// wires driven by game logic
 	wire [9:0] alien_x;
 	wire [9:0] alien_y;
-	wire [10:0] aliens_alive[4:0];
+	wire [54:0] aliens_alive_flat; // flattened 5*11 bits
+	// alien laser / collision point driven by game logic
 	wire [9:0] alien_laser_x;
 	wire [9:0] alien_laser_y;
 
@@ -60,6 +65,9 @@ module vga_bitchange(
 	wire [9:0] ship_y;
 	wire [9:0] ship_laser_x;
 	wire [9:0] ship_laser_y;
+	wire ship_laser_active;
+	wire [15:0] score_from_logic;
+	wire [10:0] aliens_alive[4:0];
 
 
 	reg alien_present;
@@ -68,20 +76,33 @@ module vga_bitchange(
 	reg laser_present;
 
 
-	assign alien_x = 10'd224;
-	assign alien_y = 10'd85;
-	assign alien_laser_x = 10'd345;
-	assign alien_laser_y = 10'd365;
-	assign ship_x = 10'd300;
-	assign ship_y = 10'd465;
-	assign ship_laser_x = 10'd330;
-	assign ship_laser_y = 10'd420;
+	// Instantiate game logic
+	game_logic gl(
+		.clk(clk),
+		.btnA(btnA),
+		.btnB(btnB),
+		.alien_x(alien_x),
+		.alien_y(alien_y),
+		.aliens_alive_flat(aliens_alive_flat),
+		.ship_x(ship_x),
+		.ship_y(ship_y),
+		.ship_laser_x(ship_laser_x),
+		.ship_laser_y(ship_laser_y),
+		.ship_laser_active(ship_laser_active),
+		.alien_laser_x(alien_laser_x),
+		.alien_laser_y(alien_laser_y),
+		.score(score_from_logic)
+	);
 
-	assign aliens_alive[0] = 11'b01111111111;
-	assign aliens_alive[1] = 11'b11111111100;
-	assign aliens_alive[2] = 11'b11101111011;
-	assign aliens_alive[3] = 11'b11111001111;
-	assign aliens_alive[4] = 11'b11111111111;
+	// unpack flattened alive mask into row vectors for compatibility with existing renderer code
+	assign aliens_alive[0] = aliens_alive_flat[ 0 +: 11];
+	assign aliens_alive[1] = aliens_alive_flat[11 +: 11];
+	assign aliens_alive[2] = aliens_alive_flat[22 +: 11];
+	assign aliens_alive[3] = aliens_alive_flat[33 +: 11];
+	assign aliens_alive[4] = aliens_alive_flat[44 +: 11];
+
+	// forward score from logic to top-level
+	always @(*) score = score_from_logic;
 
 
 	always @ (*) begin : PLOT_ALIENS
@@ -225,8 +246,6 @@ module vga_bitchange(
 		end
 	end
 
-	always @ (*) begin
-		score = 15'd0;
-	end
+	// (score comes from game_logic)
 	
 endmodule

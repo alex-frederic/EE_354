@@ -44,7 +44,8 @@ module vga_top(
 	wire [3:0] anode;
 	wire [11:0] rgb;
 	display_controller dc(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .hCount(hc), .vCount(vc));
-	vga_bitchange vbc(.clk(ClkPort), .bright(bright), .hCount(hc), .vCount(vc), .rgb(rgb), .score(score));
+	// Map BtnU -> btnA (move left), BtnC -> btnB (move right); pressing both will fire.
+	vga_bitchange vbc(.clk(ClkPort), .bright(bright), .hCount(hc), .vCount(vc), .btnA(BtnU), .btnB(BtnC), .rgb(rgb), .score(score));
 	counter cnt(.clk(ClkPort), .displayNumber(score), .anode(anode), .ssdOut(ssdOut));
 	
 	assign Dp = 1;
