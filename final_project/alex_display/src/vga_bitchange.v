@@ -69,11 +69,45 @@ module vga_bitchange(
 	wire [15:0] score_from_logic;
 	wire [10:0] aliens_alive[4:0];
 
+	//sprite dimensions
+	wire [4:0]  sprite_row;
+	wire [5:0]  sprite_col;
+	wire [11:0] alien_color_data;
+
+	//wire instationation of wrapped due to rom needing to address wires instead of registers
+	wire [9:0] wrapped_x_wire;
+	wire [9:0] wrapped_y_wire;
 
 	reg alien_present;
 	reg shield_present;
 	reg ship_present;
 	reg laser_present;
+
+	//
+	assign wrapped_x_wire = (hCount >= alien_x) 
+                   ? (hCount - alien_x) % (ALIEN_WIDTH  + X_SPACING) : 0;
+	assign wrapped_y_wire = (vCount >= alien_y) 
+                   ? (vCount - alien_y) % (ALIEN_HEIGHT + Y_SPACING) : 0;
+				   
+	assign sprite_row = wrapped_y_wire[4:0];
+	assign sprite_col = wrapped_x_wire[5:0];
+
+	//rename to image file
+	test_sprite_12_bit alien_rom_inst (
+		.clk        (clk),
+		.row        (sprite_row),
+		.col        (sprite_col),
+		.color_data (alien_color_data)
+	);
+
+	//rom lag
+	reg alien_present_delayed;
+	always @(posedge clk) begin
+		alien_present_delayed <= alien_present;
+	end
+
+
+
 
 
 	// Instantiate game logic
@@ -109,14 +143,15 @@ module vga_bitchange(
 		reg in_x_range;
 		reg in_y_range;
 		reg in_block;
-		reg [9:0] wrapped_x;
-		reg [9:0] wrapped_y;
 		reg alien_overlap_x;
 		reg alien_overlap_y;
+		reg [9:0] wrapped_x;
+		reg [9:0] wrapped_y;
 		reg alien_overlap;
 		reg [3:0] alien_col;
 		reg [2:0] alien_row;
 		reg live_alien;
+
 
 
 		in_x_range = (hCount >= alien_x)  &&  (hCount < alien_x + GROUP_WIDTH);
@@ -202,20 +237,25 @@ module vga_bitchange(
 	
 	
 	always@ (*) begin : ASSIGN_COLORS
-    	if (~bright) begin
+		if (~bright) begin
 			rgb = BLACK;
-		end else if ((hCount==ship_laser_x)&&(vCount==ship_laser_y) || (hCount==alien_laser_x)&&(vCount==alien_laser_y)) begin
-			rgb = BLUE; // Plot laser draw points in blue for debugging purposes
+		end else if ((hCount==ship_laser_x && vCount==ship_laser_y)
+		          || (hCount==alien_laser_x && vCount==alien_laser_y)) begin
+			rgb = BLUE; // Laser draw-points in blue for debugging
 		end else if (laser_present) begin
 			rgb = WHITE;
-		end else if (alien_present) begin
-			rgb = WHITE;
+		end else if (alien_present_delayed && alien_color_data != TRANSPARENT) begin
+			/* Real sprite pixel — use the ROM color */
+			rgb = alien_color_data;
+		end else if (alien_present_delayed) begin
+			/* Transparent sprite pixel — show background */
+			rgb = BLACK;
 		end else if (shield_present) begin
 			rgb = GREEN;
 		end else if (ship_present) begin
 			rgb = GREEN;
 		end else begin
-			rgb = BLACK; // background color
+			rgb = BLACK; // background
 		end
 		
 		// These are real corners of display! Update bright signal!
@@ -226,19 +266,19 @@ module vga_bitchange(
 		end else if (hCount==783) begin
 			rgb = BLUE;
 		end
-		
+
 		if (hCount==143 || hCount==145) begin
 			rgb = RED;
 		end else if (hCount==782 || hCount==784) begin
 			rgb = RED;
 		end
-		
+
 		if (vCount==35) begin
 			rgb = BLUE;
 		end else if (vCount==514) begin
 			rgb = BLUE;
 		end
-		
+
 		if (vCount==34 || vCount==36) begin
 			rgb = RED;
 		end else if (vCount==513 || vCount==515) begin
