@@ -189,12 +189,21 @@ module game_logic(
     end
 
     // Laser update block - runs at a faster rate to improve smoothness
-    always @(posedge clk) begin
+    always @(posedge clk) begin : LASER_UPDATE
+    	localparam s_y = 395;
+    	localparam s_h = 40;
+    	localparam s1x = 232;
+    	localparam s2x = 360;
+    	localparam s3x = 488;
+    	localparam s4x = 615;
+    	localparam s_w = 80;
+    	
+    	integer ii;
+    	integer jj;
+    
         if (!laser_tick_en) begin
             // nothing
         end else begin
-            integer ii;
-            integer jj;
             // Move ship lasers and clear ones that leave the screen
             for (ii = 0; ii < NUM_LASERS; ii = ii + 1) begin
                 if (laser_active[ii]) begin
@@ -285,13 +294,6 @@ module game_logic(
             for (jj = 0; jj < NUM_ALIEN_LASERS; jj = jj + 1) begin
                 if (alien_lactive[jj]) begin
                     // shield collision
-                    localparam s_y = 395;
-                    localparam s_h = 40;
-                    localparam s1x = 232;
-                    localparam s2x = 360;
-                    localparam s3x = 488;
-                    localparam s4x = 615;
-                    localparam s_w = 80;
 
                     if ((alien_ly[jj] >= s_y) && (alien_ly[jj] < s_y + s_h)) begin
                         if ((alien_lx[jj] >= s1x && alien_lx[jj] < s1x + s_w) ||

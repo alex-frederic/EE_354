@@ -37,6 +37,8 @@ module vga_bitchange(
 	localparam RED   = 12'b1111_0000_0000;
 	localparam GREEN = 12'b0000_1111_0000;
 	localparam BLUE  = 12'b0000_0000_1111;
+	
+	localparam TRANSPARENT = 12'hF0F;
 
 	localparam ALIEN_WIDTH = 36;
 	localparam ALIEN_HEIGHT = 24;
@@ -235,13 +237,22 @@ module vga_bitchange(
 		integer li;
 		reg hit_ship_l;
 		reg hit_alien_l;
+		reg [9:0] lx;
+		reg [9:0] ly;
+		reg [9:0] ax;
+		reg [9:0] ay;
+		
+		lx = ship_laser_x_flat[li*10 +: 10];
+		ly = ship_laser_y_flat[li*10 +: 10];
+		ax = alien_laser_x_flat[li*10 +: 10];
+		ay = alien_laser_y_flat[li*10 +: 10];
+		
 		hit_ship_l = 0;
 		hit_alien_l = 0;
 		// check ship lasers pool
 		for (li = 0; li < 8; li = li + 1) begin
 			if (ship_laser_active_flat[li]) begin
-				wire [9:0] lx = ship_laser_x_flat[li*10 +: 10];
-				wire [9:0] ly = ship_laser_y_flat[li*10 +: 10];
+				
 				if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
 					hit_ship_l = 1;
 				end
@@ -251,8 +262,6 @@ module vga_bitchange(
 		// check alien lasers pool
 		for (li = 0; li < 8; li = li + 1) begin
 			if (alien_laser_active_flat[li]) begin
-				wire [9:0] ax = alien_laser_x_flat[li*10 +: 10];
-				wire [9:0] ay = alien_laser_y_flat[li*10 +: 10];
 				if ((hCount >= ax - LASER_X_BOUND) && (hCount <= ax + LASER_X_BOUND) && (vCount > ay - LASER_HEIGHT) && (vCount <= ay)) begin
 					hit_alien_l = 1;
 				end
@@ -264,6 +273,17 @@ module vga_bitchange(
 	
 	
 	always@ (*) begin : ASSIGN_COLORS
+		integer li;
+		reg [9:0] lx;
+		reg [9:0] ly;
+		reg [9:0] ax;
+		reg [9:0] ay;
+		
+		lx = ship_laser_x_flat[li*10 +: 10];
+		ly = ship_laser_y_flat[li*10 +: 10];
+		ax = alien_laser_x_flat[li*10 +: 10];
+		ay = alien_laser_y_flat[li*10 +: 10];
+	
 		if (~bright) begin
 			rgb = BLACK;
 		end else begin
@@ -271,11 +291,8 @@ module vga_bitchange(
 			rgb = BLACK;
 
 			// ship lasers (blue)
-			integer li;
 			for (li = 0; li < 8; li = li + 1) begin
 				if (ship_laser_active_flat[li]) begin
-					wire [9:0] lx = ship_laser_x_flat[li*10 +: 10];
-					wire [9:0] ly = ship_laser_y_flat[li*10 +: 10];
 					if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
 						rgb = BLUE;
 					end
@@ -285,8 +302,6 @@ module vga_bitchange(
 			// alien lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
 				if (alien_laser_active_flat[li]) begin
-					wire [9:0] ax = alien_laser_x_flat[li*10 +: 10];
-					wire [9:0] ay = alien_laser_y_flat[li*10 +: 10];
 					if ((hCount >= ax - LASER_X_BOUND) && (hCount <= ax + LASER_X_BOUND) && (vCount > ay - LASER_HEIGHT) && (vCount <= ay)) begin
 						rgb = WHITE;
 					end
@@ -304,12 +319,10 @@ module vga_bitchange(
 			/* Transparent sprite pixel — show background */
 			rgb = BLACK;
 			end
-			/*
-			to go to white rectangles, use:
-			if(alien_present) rgb = WHITE;
+
 			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
-			*/
+		
 		// These are real corners of display! Update bright signal!
 		// However, hCount=144 & vCount=35 are only partially visible!
 		// x in [144, 783] & y in [35, 514]
