@@ -304,10 +304,12 @@ module vga_bitchange(
 			/* Transparent sprite pixel — show background */
 			rgb = BLACK;
 			end
-
+			/*
+			to go to white rectangles, use:
+			if(alien_present) rgb = WHITE;
 			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
-		
+			*/
 		// These are real corners of display! Update bright signal!
 		// However, hCount=144 & vCount=35 are only partially visible!
 		// x in [144, 783] & y in [35, 514]
