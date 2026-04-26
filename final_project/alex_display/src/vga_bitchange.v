@@ -242,15 +242,13 @@ module vga_bitchange(
 		reg [9:0] ax;
 		reg [9:0] ay;
 		
-		lx = ship_laser_x_flat[li*10 +: 10];
-		ly = ship_laser_y_flat[li*10 +: 10];
-		ax = alien_laser_x_flat[li*10 +: 10];
-		ay = alien_laser_y_flat[li*10 +: 10];
 		
 		hit_ship_l = 0;
 		hit_alien_l = 0;
 		// check ship lasers pool
 		for (li = 0; li < 8; li = li + 1) begin
+			lx = ship_laser_x_flat[li*10 +: 10];
+			ly = ship_laser_y_flat[li*10 +: 10];
 			if (ship_laser_active_flat[li]) begin
 				
 				if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
@@ -261,6 +259,8 @@ module vga_bitchange(
 
 		// check alien lasers pool
 		for (li = 0; li < 8; li = li + 1) begin
+			ax = alien_laser_x_flat[li*10 +: 10];
+			ay = alien_laser_y_flat[li*10 +: 10];
 			if (alien_laser_active_flat[li]) begin
 				if ((hCount >= ax - LASER_X_BOUND) && (hCount <= ax + LASER_X_BOUND) && (vCount > ay - LASER_HEIGHT) && (vCount <= ay)) begin
 					hit_alien_l = 1;
@@ -279,10 +279,8 @@ module vga_bitchange(
 		reg [9:0] ax;
 		reg [9:0] ay;
 		
-		lx = ship_laser_x_flat[li*10 +: 10];
-		ly = ship_laser_y_flat[li*10 +: 10];
-		ax = alien_laser_x_flat[li*10 +: 10];
-		ay = alien_laser_y_flat[li*10 +: 10];
+		
+		
 	
 		if (~bright) begin
 			rgb = BLACK;
@@ -292,6 +290,8 @@ module vga_bitchange(
 
 			// ship lasers (blue)
 			for (li = 0; li < 8; li = li + 1) begin
+				lx = ship_laser_x_flat[li*10 +: 10];
+				ly = ship_laser_y_flat[li*10 +: 10];
 				if (ship_laser_active_flat[li]) begin
 					if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
 						rgb = BLUE;
@@ -301,6 +301,8 @@ module vga_bitchange(
 
 			// alien lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
+				ax = alien_laser_x_flat[li*10 +: 10];
+				ay = alien_laser_y_flat[li*10 +: 10];
 				if (alien_laser_active_flat[li]) begin
 					if ((hCount >= ax - LASER_X_BOUND) && (hCount <= ax + LASER_X_BOUND) && (vCount > ay - LASER_HEIGHT) && (vCount <= ay)) begin
 						rgb = WHITE;
