@@ -124,8 +124,9 @@ module vga_bitchange(
 	// Instantiate game logic
 	game_logic gl(
 		.clk(clk),
-		.btnA(btnA),
-		.btnB(btnB),
+		.left_button(left_button),
+		.right_button(right_button),
+		.fire_button(fire_button),
 		.alien_x(alien_x),
 		.alien_y(alien_y),
 		.aliens_alive_flat(aliens_alive_flat),

@@ -48,7 +48,7 @@ module vga_top(
 
 	wire combined_fire;
 
-	assign combined_fire = BtnU or Btnc;
+	assign combined_fire = BtnU || BtnC;
 
 	display_controller dc(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .hCount(hc), .vCount(vc));
 	// Map BtnU -> btnA (move left), BtnC -> btnB (move right); pressing both will fire.
