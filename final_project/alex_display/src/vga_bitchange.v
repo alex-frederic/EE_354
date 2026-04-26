@@ -66,8 +66,18 @@ module vga_bitchange(
 	wire [9:0] ship_laser_x;
 	wire [9:0] ship_laser_y;
 	wire ship_laser_active;
+	wire [79:0] ship_laser_x_flat;
+	wire [79:0] ship_laser_y_flat;
+	wire [7:0] ship_laser_active_flat;
+
+	wire [79:0] alien_laser_x_flat;
+	wire [79:0] alien_laser_y_flat;
+	wire [7:0] alien_laser_active_flat;
+
 	wire [15:0] score_from_logic;
 	wire [10:0] aliens_alive[4:0];
+	wire [7:0] shield_damage;
+	wire [7:0] ship_damage;
 
 
 	reg alien_present;
@@ -91,7 +101,15 @@ module vga_bitchange(
 		.ship_laser_active(ship_laser_active),
 		.alien_laser_x(alien_laser_x),
 		.alien_laser_y(alien_laser_y),
-		.score(score_from_logic)
+		.score(score_from_logic),
+		.ship_laser_x_flat(ship_laser_x_flat),
+		.ship_laser_y_flat(ship_laser_y_flat),
+		.ship_laser_active_flat(ship_laser_active_flat),
+		.alien_laser_x_flat(alien_laser_x_flat),
+		.alien_laser_y_flat(alien_laser_y_flat),
+		.alien_laser_active_flat(alien_laser_active_flat),
+		.shield_damage(shield_damage),
+		.ship_damage(ship_damage)
 	);
 
 	// unpack flattened alive mask into row vectors for compatibility with existing renderer code
@@ -181,41 +199,71 @@ module vga_bitchange(
 	end
 
 	always @(*) begin : PLOT_LASERS
-		reg in_ship_x;
-		reg in_ship_y;
-		reg hit_ship_laser;
-		reg in_alien_x;
-		reg in_alien_y;
-		reg hit_alien_laser;
-		
-		
-		in_ship_x = (hCount >= ship_laser_x - LASER_X_BOUND)  &&  (hCount <= ship_laser_x + LASER_X_BOUND);
-		in_ship_y = (vCount >= ship_laser_y)  &&  (vCount < ship_laser_y + LASER_HEIGHT);
-		hit_ship_laser = in_ship_x && in_ship_y;
+		integer li;
+		reg hit_ship_l;
+		reg hit_alien_l;
+		hit_ship_l = 0;
+		hit_alien_l = 0;
+		// check ship lasers pool
+		for (li = 0; li < 8; li = li + 1) begin
+			if (ship_laser_active_flat[li]) begin
+				wire [9:0] lx = ship_laser_x_flat[li*10 +: 10];
+				wire [9:0] ly = ship_laser_y_flat[li*10 +: 10];
+				if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
+					hit_ship_l = 1;
+				end
+			end
+		end
 
-		in_alien_x = (hCount >= alien_laser_x - LASER_X_BOUND)  &&  (hCount <= alien_laser_x + LASER_X_BOUND);
-		in_alien_y = (vCount > alien_laser_y - LASER_HEIGHT)  &&  (vCount <= alien_laser_y);
-		hit_alien_laser = in_alien_x && in_alien_y;
-		
-		laser_present = hit_ship_laser || hit_alien_laser;
+		// check alien lasers pool
+		for (li = 0; li < 8; li = li + 1) begin
+			if (alien_laser_active_flat[li]) begin
+				wire [9:0] ax = alien_laser_x_flat[li*10 +: 10];
+				wire [9:0] ay = alien_laser_y_flat[li*10 +: 10];
+				if ((hCount >= ax - LASER_X_BOUND) && (hCount <= ax + LASER_X_BOUND) && (vCount > ay - LASER_HEIGHT) && (vCount <= ay)) begin
+					hit_alien_l = 1;
+				end
+			end
+		end
+
+		laser_present = hit_ship_l || hit_alien_l;
 	end
 	
 	
 	always@ (*) begin : ASSIGN_COLORS
-    	if (~bright) begin
+		if (~bright) begin
 			rgb = BLACK;
-		end else if ((hCount==ship_laser_x)&&(vCount==ship_laser_y) || (hCount==alien_laser_x)&&(vCount==alien_laser_y)) begin
-			rgb = BLUE; // Plot laser draw points in blue for debugging purposes
-		end else if (laser_present) begin
-			rgb = WHITE;
-		end else if (alien_present) begin
-			rgb = WHITE;
-		end else if (shield_present) begin
-			rgb = GREEN;
-		end else if (ship_present) begin
-			rgb = GREEN;
 		end else begin
-			rgb = BLACK; // background color
+			// default background
+			rgb = BLACK;
+
+			// ship lasers (blue)
+			integer li;
+			for (li = 0; li < 8; li = li + 1) begin
+				if (ship_laser_active_flat[li]) begin
+					wire [9:0] lx = ship_laser_x_flat[li*10 +: 10];
+					wire [9:0] ly = ship_laser_y_flat[li*10 +: 10];
+					if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
+						rgb = BLUE;
+					end
+				end
+			end
+
+			// alien lasers (white)
+			for (li = 0; li < 8; li = li + 1) begin
+				if (alien_laser_active_flat[li]) begin
+					wire [9:0] ax = alien_laser_x_flat[li*10 +: 10];
+					wire [9:0] ay = alien_laser_y_flat[li*10 +: 10];
+					if ((hCount >= ax - LASER_X_BOUND) && (hCount <= ax + LASER_X_BOUND) && (vCount > ay - LASER_HEIGHT) && (vCount <= ay)) begin
+						rgb = WHITE;
+					end
+				end
+			end
+
+			// aliens, shields, ship
+			if (alien_present) rgb = WHITE;
+			if (shield_present) rgb = GREEN;
+			if (ship_present) rgb = GREEN;
 		end
 		
 		// These are real corners of display! Update bright signal!
