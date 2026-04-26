@@ -115,6 +115,10 @@ module game_logic(
     localparam NUM_LASERS = 8;
     localparam NUM_ALIEN_LASERS = 8;
 
+    // firing cooldown (in laser ticks) to limit fire rate when using the same buttons
+    localparam integer FIRE_COOLDOWN = 8;
+    reg [7:0] fire_cooldown;
+
     // laser pool storage
     reg [9:0] laser_x [0:NUM_LASERS-1];
     reg [9:0] laser_y [0:NUM_LASERS-1];
@@ -202,6 +206,25 @@ module game_logic(
                 end
             end
 
+            // Fire allocation: if both buttons pressed, try to allocate into first free slot
+            if (btnA && btnB) begin
+                if (fire_cooldown == 0) begin
+                    found = 0;
+                    for (ii = 0; ii < NUM_LASERS; ii = ii + 1) begin
+                        if (!found && !laser_active[ii]) begin
+                            laser_active[ii] <= 1'b1;
+                            laser_x[ii] <= ship_x + (SHIP_WIDTH >> 1);
+                            laser_y[ii] <= ship_y - 1;
+                            found = 1;
+                        end
+                    end
+                    if (found) fire_cooldown <= FIRE_COOLDOWN;
+                end
+            end
+
+            // decrement cooldown if active
+            if (fire_cooldown != 0) fire_cooldown <= fire_cooldown - 1;
+
             // Move alien lasers
             for (ii = 0; ii < NUM_ALIEN_LASERS; ii = ii + 1) begin
                 if (alien_lactive[ii]) begin
@@ -213,22 +236,14 @@ module game_logic(
                 end
             end
 
-            // Ship laser collisions
+            // Ship laser collisions and kills (moved here to centralize laser updates)
+            // Clear collision marker at start of laser tick
+            alien_laser_x <= 10'd0;
+            alien_laser_y <= 10'd0;
+
             for (jj = 0; jj < NUM_LASERS; jj = jj + 1) begin
                 if (laser_active[jj]) begin
-                    // in-range checks
-                    reg in_x_range;
-                    reg in_y_range;
-                    reg in_block;
-                    reg [9:0] wrapped_x;
-                    reg [9:0] wrapped_y;
-                    reg alien_overlap_x;
-                    reg alien_overlap_y;
-                    reg alien_overlap;
-                    reg [3:0] alien_col;
-                    reg [2:0] alien_row;
-                    reg live_alien;
-
+                    // in-range checks using hoisted temporaries
                     in_x_range = (laser_x[jj] >= alien_x) && (laser_x[jj] < alien_x + GROUP_WIDTH);
                     in_y_range = (laser_y[jj] >= alien_y) && (laser_y[jj] < alien_y + GROUP_HEIGHT);
                     in_block = in_x_range && in_y_range;
@@ -245,11 +260,10 @@ module game_logic(
                         alien_row = (laser_y[jj] - alien_y) / (ALIEN_HEIGHT + Y_SPACING);
 
                         if (alien_col >= 0 && alien_col < 11 && alien_row >= 0 && alien_row < 5 && alien_overlap) begin
-                            integer idx;
                             idx = alien_row*11 + alien_col;
                             live_alien = aliens_alive_flat[idx];
                             if (live_alien) begin
-                                // kill alien
+                                // kill alien (only driven here)
                                 aliens_alive_flat[idx] <= 1'b0;
                                 // per-row scoring
                                 if (alien_row == 2 || alien_row == 4) begin
@@ -302,10 +316,19 @@ module game_logic(
             ship_laser_x_flat = {80{1'b0}};
             ship_laser_y_flat = {80{1'b0}};
             ship_laser_active_flat = 8'd0;
+            // also expose the first active laser as ship_laser_* for backwards compatibility
+            ship_laser_active = 1'b0;
+            ship_laser_x = 10'd0;
+            ship_laser_y = 10'd0;
             for (ii = 0; ii < NUM_LASERS; ii = ii + 1) begin
                 ship_laser_x_flat[ii*10 +: 10] = laser_x[ii];
                 ship_laser_y_flat[ii*10 +: 10] = laser_y[ii];
                 ship_laser_active_flat[ii] = laser_active[ii];
+                if (!ship_laser_active && laser_active[ii]) begin
+                    ship_laser_active = 1'b1;
+                    ship_laser_x = laser_x[ii];
+                    ship_laser_y = laser_y[ii];
+                end
             end
 
             alien_laser_x_flat = {80{1'b0}};
@@ -365,18 +388,8 @@ module game_logic(
                 ship_x <= ship_x + SHIP_SPEED;
         end
 
-        // Fire allocation remains here (triggered on slow tick to limit rate)
-        if (btnA && btnB) begin
-            alloc_done = 1'b0;
-            for (i = 0; i < NUM_LASERS; i = i + 1) begin
-                if (!alloc_done && !laser_active[i]) begin
-                    laser_active[i] <= 1'b1;
-                    laser_x[i] <= ship_x + (SHIP_WIDTH >> 1);
-                    laser_y[i] <= ship_y - 1;
-                    alloc_done = 1'b1;
-                end
-            end
-        end
+        // Fire allocation moved to the laser-tick block so laser pool
+        // registers are driven from a single always block (laser_tick).
 
         // Move alien group horizontally, reverse and drop when hitting edges
         begin
@@ -422,63 +435,9 @@ module game_logic(
 
         // for collision detection, we check against the (hCount==alien_laser_x)&&(vCount==alien_laser_y) to see if there is a collision
 
-        // Clear collision marker at start of tick
-        alien_laser_x <= 10'd0;
-        alien_laser_y <= 10'd0;
-
-        // Check collisions for each active laser using renderer-aligned logic
-        for (j = 0; j < NUM_LASERS; j = j + 1) begin
-            if (laser_active[j]) begin
-                // in-range checks
-                reg in_x_range;
-                reg in_y_range;
-                reg in_block;
-                reg [9:0] wrapped_x;
-                reg [9:0] wrapped_y;
-                reg alien_overlap_x;
-                reg alien_overlap_y;
-                reg alien_overlap;
-                reg [3:0] alien_col;
-                reg [2:0] alien_row;
-                reg live_alien;
-
-                in_x_range = (laser_x[j] >= alien_x) && (laser_x[j] < alien_x + GROUP_WIDTH);
-                in_y_range = (laser_y[j] >= alien_y) && (laser_y[j] < alien_y + GROUP_HEIGHT);
-                in_block = in_x_range && in_y_range;
-
-                if (in_block) begin
-                    wrapped_x = (laser_x[j] - alien_x) % (ALIEN_WIDTH + X_SPACING);
-                    wrapped_y = (laser_y[j] - alien_y) % (ALIEN_HEIGHT + Y_SPACING);
-
-                    alien_overlap_x = wrapped_x < ALIEN_WIDTH;
-                    alien_overlap_y = wrapped_y < ALIEN_HEIGHT;
-                    alien_overlap = alien_overlap_x && alien_overlap_y;
-
-                    alien_col = (laser_x[j] - alien_x) / (ALIEN_WIDTH + X_SPACING);
-                    alien_row = (laser_y[j] - alien_y) / (ALIEN_HEIGHT + Y_SPACING);
-
-                    if (alien_col >= 0 && alien_col < 11 && alien_row >= 0 && alien_row < 5 && alien_overlap) begin
-                        integer idx;
-                        idx = alien_row*11 + alien_col;
-                        live_alien = aliens_alive_flat[idx];
-                        if (live_alien) begin
-                            // kill alien
-                            aliens_alive_flat[idx] <= 1'b0;
-                            // per-row scoring: rows 0,1 => 10; rows 2,4 => 20; row 3 => 10
-                            if (alien_row == 2 || alien_row == 4) begin
-                                score <= score + 16'd20;
-                            end else begin
-                                score <= score + 16'd10;
-                            end
-                            // mark collision pixel and remove laser
-                            alien_laser_x <= laser_x[j];
-                            alien_laser_y <= laser_y[j];
-                            laser_active[j] <= 1'b0;
-                        end
-                    end
-                end
-            end
-        end
+        // Laser collision/movement/kill handling moved to the faster laser-tick block
+        // to avoid multiple always-block drivers for the same registers.
+    end
     end
 
 endmodule
