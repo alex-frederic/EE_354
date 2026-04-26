@@ -101,7 +101,7 @@ module vga_bitchange(
 	assign sprite_col = wrapped_x_wire[5:0];
 
 	//rename to image file
-	test_sprite_12_bit alien_rom_inst (
+	crab_rom alien_rom_inst (
 		.clk        (clk),
 		.row        (sprite_row),
 		.col        (sprite_col),
@@ -334,6 +334,7 @@ module vga_bitchange(
 		end else if (vCount==513 || vCount==515) begin
 			rgb = RED;
 		end
+	end
 	end
 
 	// (score comes from game_logic)
