@@ -23,8 +23,10 @@
 //////////////////////////////////////////////////////////////////////////////////
 module vga_top(
 	input ClkPort,
-	input BtnC,
+	input BtnL,
+	input BtnR,
 	input BtnU,
+	input BtnC,
 	
 	//VGA signal
 	output hSync, vSync,
@@ -43,10 +45,15 @@ module vga_top(
 	wire [6:0] ssdOut;
 	wire [3:0] anode;
 	wire [11:0] rgb;
+
+	wire combined_fire;
+
+	assign combined_fire = BtnU or Btnc;
+
 	display_controller dc(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .hCount(hc), .vCount(vc));
 	// Map BtnU -> btnA (move left), BtnC -> btnB (move right); pressing both will fire.
 	// changing this to be the middle button or top button being clicked will fire
-	vga_bitchange vbc(.clk(ClkPort), .bright(bright), .hCount(hc), .vCount(vc), .btnA(BtnU), .btnB(BtnC), .rgb(rgb), .score(score));
+	vga_bitchange vbc(.clk(ClkPort), .bright(bright), .hCount(hc), .vCount(vc), .left_button(BtnL), .right_button(BtnR), .fire_button(combined_fire), .rgb(rgb), .score(score));
 	counter cnt(.clk(ClkPort), .displayNumber(score), .anode(anode), .ssdOut(ssdOut));
 	
 	assign Dp = 1;

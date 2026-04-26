@@ -12,8 +12,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 module game_logic(
     input clk,
-    input btnA,
-    input btnB,
+    input right_button,
+    input left_button,
+    input fire_button,
 
     output reg [9:0] alien_x,
     output reg [9:0] alien_y,
@@ -216,7 +217,7 @@ module game_logic(
             end
 
             // Fire allocation: if both buttons pressed, try to allocate into first free slot
-            if (btnA && btnB) begin
+            if (fire_button) begin
                 if (fire_cooldown == 0) begin
                     found = 0;
                     for (ii = 0; ii < NUM_LASERS; ii = ii + 1) begin
@@ -382,10 +383,10 @@ module game_logic(
             // do nothing until the enable pulse
         end else begin
         // Ship movement
-        if (btnA && !btnB) begin
+        if (left_button && !right_button) begin
             if (ship_x > H_MIN + 1)
                 ship_x <= ship_x - SHIP_SPEED;
-        end else if (!btnA && btnB) begin
+        end else if (!left_button && right_button) begin
             if (ship_x + SHIP_WIDTH + SHIP_SPEED < H_MAX)
                 ship_x <= ship_x + SHIP_SPEED;
         end

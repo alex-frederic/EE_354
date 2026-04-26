@@ -26,8 +26,9 @@ module vga_bitchange(
 	input bright,
 	input [9:0] hCount, vCount,
 	// control buttons forwarded from top
-	input btnA,
-	input btnB,
+	input left_button,
+	input right_button,
+	input fire_button,
 	output reg [11:0] rgb,
 	output reg [15:0] score
 );
