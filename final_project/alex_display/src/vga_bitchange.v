@@ -290,6 +290,8 @@ module vga_bitchange(
 			// default background
 			rgb = BLACK;
 
+			if (shield_present) rgb = GREEN;
+
 			// ship lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
 				lx = ship_laser_x_flat[li*10 +: 10];
@@ -313,18 +315,12 @@ module vga_bitchange(
 			end
 
 			// aliens, shields, ship
-			if (alien_present_delayed && alien_color_data != TRANSPARENT) 
+			if (alien_present_delayed && alien_color_data != BLACK) 
 			begin
 			/* Real sprite pixel — use the ROM color */
 			rgb = alien_color_data;
 			end
-			else if (alien_present_delayed) 
-			begin
-			/* Transparent sprite pixel — show background */
-			rgb = BLACK;
-			end
 
-			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
 		
 		// These are, in general, the real corners of display:
