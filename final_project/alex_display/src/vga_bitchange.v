@@ -312,8 +312,6 @@ module vga_bitchange(
 				end
 			end
 
-			if (shield_present) rgb = GREEN;
-
 			// aliens, shields, ship
 			if (alien_present_delayed && alien_color_data != TRANSPARENT) 
 			begin
@@ -326,6 +324,7 @@ module vga_bitchange(
 			rgb = BLACK;
 			end
 
+			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
 		
 		// These are real corners of display! Update bright signal!
