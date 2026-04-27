@@ -327,32 +327,10 @@ module vga_bitchange(
 			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
 		
-		// These are real corners of display! Update bright signal!
-		// However, hCount=144 & vCount=35 are only partially visible!
+		// These are, in general, the real corners of display:
 		// x in [144, 783] & y in [35, 514]
-		if (hCount==144) begin
-			rgb = BLUE;
-		end else if (hCount==783) begin
-			rgb = BLUE;
-		end
-
-		if (hCount==143 || hCount==145) begin
-			rgb = RED;
-		end else if (hCount==782 || hCount==784) begin
-			rgb = RED;
-		end
-
-		if (vCount==35) begin
-			rgb = BLUE;
-		end else if (vCount==514) begin
-			rgb = BLUE;
-		end
-
-		if (vCount==34 || vCount==36) begin
-			rgb = RED;
-		end else if (vCount==513 || vCount==515) begin
-			rgb = RED;
-		end
+		// However, the exact mapping is a little bit random each time.
+		// The real boundaries may shift by a pixel or so when running.
 	end
 	end
 
