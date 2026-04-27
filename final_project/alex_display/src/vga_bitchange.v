@@ -286,17 +286,17 @@ module vga_bitchange(
 	
 		if (~bright) begin
 			rgb = BLACK;
-		end else begin
+		end else begin	
 			// default background
 			rgb = BLACK;
 
-			// ship lasers (blue)
+			// ship lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
 				lx = ship_laser_x_flat[li*10 +: 10];
 				ly = ship_laser_y_flat[li*10 +: 10];
 				if (ship_laser_active_flat[li]) begin
 					if ((hCount >= lx - LASER_X_BOUND) && (hCount <= lx + LASER_X_BOUND) && (vCount >= ly) && (vCount < ly + LASER_HEIGHT)) begin
-						rgb = BLUE;
+						rgb = WHITE;
 					end
 				end
 			end
@@ -312,6 +312,8 @@ module vga_bitchange(
 				end
 			end
 
+			if (shield_present) rgb = GREEN;
+
 			// aliens, shields, ship
 			if (alien_present_delayed && alien_color_data != TRANSPARENT) 
 			begin
@@ -324,7 +326,6 @@ module vga_bitchange(
 			rgb = BLACK;
 			end
 
-			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
 		
 		// These are real corners of display! Update bright signal!
