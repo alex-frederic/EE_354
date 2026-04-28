@@ -233,6 +233,9 @@ module game_logic(
     	
     	integer ii;
     	integer jj;
+
+        reg allocated;
+        integer free_idx;
     
         if (!laser_tick_en) begin
             // nothing
@@ -295,7 +298,6 @@ module game_logic(
                     end
                     if (found != -1) begin
                         // allocate into first free alien laser slot
-                        reg allocated;
                         allocated = 1'b0;
                         for (free_idx = 0; free_idx < NUM_ALIEN_LASERS; free_idx = free_idx + 1) begin
                             if (!allocated && !alien_lactive[free_idx]) begin

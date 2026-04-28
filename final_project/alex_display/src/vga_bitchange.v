@@ -112,7 +112,7 @@ module vga_bitchange(
 		.color_data (alien_color_data)
 	);
 
-	shield_12_bit_rom shield_rom_inst 
+	shield_rom shield_rom_inst 
 	(
     .clk        (clk),
     .row        (shield_sprite_row),
