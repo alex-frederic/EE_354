@@ -358,7 +358,6 @@ module vga_bitchange(
 
 			
 
-			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
 		
 		// These are, in general, the real corners of display:
