@@ -41,7 +41,6 @@ module vga_bitchange(
 	localparam GREEN = 12'b0000_1111_0000;
 	localparam BLUE  = 12'b0000_0000_1111;
 	
-	localparam TRANSPARENT = 12'hF0F;
 
 	localparam ALIEN_WIDTH = 36;
 	localparam ALIEN_HEIGHT = 24;
@@ -113,12 +112,24 @@ module vga_bitchange(
 		.color_data (alien_color_data)
 	);
 
+	shield_12_bit_rom shield_rom_inst 
+	(
+    .clk        (clk),
+    .row        (shield_sprite_row),
+    .col        (shield_sprite_col),
+    .color_data (shield_color_data)
+	);
+
 	//rom lag
 	reg alien_present_delayed;
 	always @(posedge clk) begin
 		alien_present_delayed <= alien_present;
 	end
 
+	reg shield_present_delayed;
+	always @(posedge clk) begin
+    	shield_present_delayed <= shield_present;
+	end
 
 
 
@@ -206,6 +217,27 @@ module vga_bitchange(
 
 	// x in [144, 783] & y in [35, 514]
 
+	wire x_overlap_1_wire = hCount >= 232 && hCount < 232 + 22;
+	wire x_overlap_2_wire = hCount >= 360 && hCount < 360 + 22;
+	wire x_overlap_3_wire = hCount >= 488 && hCount < 488 + 22;
+	wire x_overlap_4_wire = hCount >= 615 && hCount < 615 + 22;
+
+
+	wire [4:0] shield_sprite_col; 
+	wire [3:0] shield_sprite_row;  
+	wire [11:0] shield_color_data;
+	wire [9:0] shield_local_x;
+
+
+	assign shield_local_x = x_overlap_1_wire ? hCount - 232 :
+							x_overlap_2_wire ? hCount - 360 :
+							x_overlap_3_wire ? hCount - 488 :
+							x_overlap_4_wire ? hCount - 615 : 0;
+
+	assign shield_sprite_row = (vCount >= 395) ? (vCount - 395) : 0;
+	assign shield_sprite_col = shield_local_x[4:0];
+
+
 	always @ (*) begin : PLOT_SHIELDS
 		reg x_overlap_1;
 		reg x_overlap_2;
@@ -215,13 +247,13 @@ module vga_bitchange(
 		reg y_overlap;
 
 		localparam shield_y = 395;
-		localparam shield_height = 40;
+		localparam shield_height = 16;
 
 		localparam shield_1_x = 232;
 		localparam shield_2_x = 360;
 		localparam shield_3_x = 488;
 		localparam shield_4_x = 615;
-		localparam shield_width = 80;
+		localparam shield_width = 22;
 
 
 		y_overlap = (vCount >= shield_y)  &&  (vCount < shield_y + shield_height); // 40 tall centered on 379 & 380
@@ -296,7 +328,10 @@ module vga_bitchange(
 			// default background
 			rgb = BLACK;
 
-			if (shield_present) rgb = GREEN;
+			if (shield_present_delayed)
+			begin
+				rgb = shield_color_data;
+			end
 
 			// ship lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
