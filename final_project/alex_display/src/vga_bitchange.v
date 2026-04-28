@@ -110,7 +110,7 @@ module vga_bitchange(
 		.color_data (alien_color_data)
 	);
 
-	shield_12_bit_rom shield_rom_inst 
+	shield_rom shield_rom_inst 
 	(
     .clk        (clk),
     .row        (shield_sprite_row),
@@ -350,7 +350,7 @@ module vga_bitchange(
 			end
 
 			// aliens, shields, ship
-			if (alien_present_delayed  &&  alien_color_data != BLACK)
+			if (alien_present_delayed  &&  alien_color_data != BLACK) 
 			begin
 			/* Real sprite pixel — use the ROM color */
 			rgb = alien_color_data;
