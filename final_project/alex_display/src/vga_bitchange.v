@@ -322,6 +322,11 @@ module vga_bitchange(
 			// default background
 			rgb = BLACK;
 
+			if (shield_present_delayed  &&  alien_color_data != BLACK)
+			begin
+				rgb = shield_color_data;
+			end
+
 			// ship lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
 				lx = ship_laser_x_flat[li*10 +: 10];
@@ -351,10 +356,7 @@ module vga_bitchange(
 			rgb = alien_color_data;
 			end
 
-			if (shield_present_delayed)
-			begin
-				rgb = shield_color_data;
-			end
+			
 
 			if (ship_present) rgb = GREEN;
 		
