@@ -276,7 +276,9 @@ module game_logic(
                                 // kill alien (only driven here)
                                 aliens_alive_flat[idx] <= 1'b0;
                                 // per-row scoring
-                                if (alien_row == 2 || alien_row == 4) begin
+                                if (alien_row == 0) begin
+                                    score <= score + 16'd30;
+                                end else if (alien_row == 1 || alien_row == 2) begin
                                     score <= score + 16'd20;
                                 end else begin
                                     score <= score + 16'd10;
