@@ -201,9 +201,6 @@ module game_logic(
     	
     	integer ii;
     	integer jj;
-
-        reg allocated;
-        integer free_idx;
     
         if (!laser_tick_en) begin
             // nothing
@@ -387,17 +384,6 @@ module game_logic(
         if (!slow_tick_en) begin
             // do nothing until the enable pulse
         end else begin
-        // If a reset_request was raised by the laser tick, clear slow-tick-owned state here
-        if (reset_request) begin
-            alien_dir_right <= 1'b1;
-            alien_x <= 10'd224;
-            alien_y <= 10'd85;
-            ship_x <= 10'd300;
-            ship_y <= 10'd465;
-            state <= S_START;
-            game_over <= 1'b0;
-            game_win <= 1'b0;
-        end else begin
         // Ship movement
         if (left_button && !right_button) begin
             if (ship_x > H_MIN + 1)
@@ -456,7 +442,6 @@ module game_logic(
 
         // Laser collision/movement/kill handling moved to the faster laser-tick block
         // to avoid multiple always-block drivers for the same registers.
-        end
     end
     end
 
