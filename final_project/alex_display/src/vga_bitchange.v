@@ -29,8 +29,6 @@ module vga_bitchange(
 	input left_button,
 	input right_button,
 	input fire_button,
-	input top_button,
-	input mid_button,
 	output reg [11:0] rgb,
 	output reg [15:0] score
 );
@@ -140,8 +138,6 @@ module vga_bitchange(
 		.left_button(left_button),
 		.right_button(right_button),
 		.fire_button(fire_button),
-		.top_button(top_button),
-		.mid_button(mid_button),
 		.alien_x(alien_x),
 		.alien_y(alien_y),
 		.aliens_alive_flat(aliens_alive_flat),
@@ -160,9 +156,7 @@ module vga_bitchange(
 		.alien_laser_y_flat(alien_laser_y_flat),
 		.alien_laser_active_flat(alien_laser_active_flat),
 		.shield_damage(shield_damage),
-		.ship_damage(ship_damage),
-		.game_over(game_over),
-		.game_win(game_win)
+		.ship_damage(ship_damage)
 	);
 
 	// unpack flattened alive mask into row vectors for compatibility with existing renderer code
@@ -355,22 +349,20 @@ module vga_bitchange(
 				end
 			end
 
-			// If game over or win, show a full-screen banner in a distinguishable color
-			if (game_over) begin
-				// magenta banner across middle of screen
-				if (vCount >= 200 && vCount <= 314) rgb = 12'b1111_0000_1111; // magenta
-			end else if (game_win) begin
-				if (vCount >= 200 && vCount <= 314) rgb = GREEN;
-			end else begin
-				// aliens, shields, ship
-				if (alien_present_delayed && alien_color_data != BLACK) 
-				begin
-				/* Real sprite pixel — use the ROM color */
-				rgb = alien_color_data;
-				end
-
-				if (ship_present) rgb = GREEN;
+			// aliens, shields, ship
+			if (alien_present_delayed && alien_color_data != TRANSPARENT) 
+			begin
+			/* Real sprite pixel — use the ROM color */
+			rgb = alien_color_data;
 			end
+			else if (alien_present_delayed) 
+			begin
+			/* Transparent sprite pixel — show background */
+			rgb = BLACK;
+			end
+
+			if (shield_present) rgb = GREEN;
+			if (ship_present) rgb = GREEN;
 		
 		// These are, in general, the real corners of display:
 		// x in [144, 783] & y in [35, 514]

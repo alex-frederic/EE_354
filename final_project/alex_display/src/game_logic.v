@@ -15,9 +15,6 @@ module game_logic(
     input right_button,
     input left_button,
     input fire_button,
-    // additional buttons for start/reset handling
-    input top_button,
-    input mid_button,
 
     output reg [9:0] alien_x,
     output reg [9:0] alien_y,
@@ -50,10 +47,6 @@ module game_logic(
     // damage counters
     output reg [7:0] shield_damage,
     output reg [7:0] ship_damage
-    ,
-    // game state outputs
-    output reg game_over,
-    output reg game_win
 );
 
     // Parameters must match renderer constants
@@ -136,22 +129,6 @@ module game_logic(
     reg [9:0] alien_ly [0:NUM_ALIEN_LASERS-1];
     reg alien_lactive [0:NUM_ALIEN_LASERS-1];
 
-    // reset / start detection
-    // default assumes 100 MHz board clock; adjust RESET_HOLD_CLKS if your board is 50MHz
-    localparam integer RESET_HOLD_CLKS = 28'd200000000; // 2 seconds @ 100MHz
-    localparam integer START_HOLD_TICKS = 8'd30; // hold count on slow_tick to start (tunable)
-    reg [27:0] reset_hold_cnt;
-    reg reset_request;
-    reg reset_done_laser;
-    reg reset_done_slow;
-    reg [7:0] start_hold_cnt;
-    // simple FSM for game state
-    reg [1:0] state;
-    localparam S_START = 2'd0;
-    localparam S_RUNNING = 2'd1;
-    localparam S_GAMEOVER = 2'd2;
-    localparam S_WIN = 2'd3;
-
     // flattened outputs are declared in the module port list above
 
     // We can pass down module parameters from bitchange to game logic to avoid hardcoding
@@ -210,15 +187,6 @@ module game_logic(
     laser_div_cnt = 0;
     laser_tick_en = 0;
     lfsr = 16'hACE1; // non-zero seed
-    // reset/start state init
-    reset_hold_cnt = 0;
-    reset_request = 0;
-    reset_done_laser = 0;
-    reset_done_slow = 0;
-    start_hold_cnt = 0;
-    state = S_START;
-    game_over = 1'b0;
-    game_win = 1'b0;
     end
 
     // Laser update block - runs at a faster rate to improve smoothness
@@ -270,48 +238,6 @@ module game_logic(
             // decrement cooldown if active
             if (fire_cooldown != 0) fire_cooldown <= fire_cooldown - 1;
 
-            // Alien random firing (LFSR-driven): occasional chance to spawn a laser
-            // Choose a candidate column from low LFSR bits and spawn from the bottom-most alive alien
-            if (lfsr[0]) begin
-                // pick a column from low nibble
-                col_idx = lfsr[3:0];
-                    if (col_idx < 11) begin
-                        // find bottom-most alive alien in this column
-                        found = -1;
-                        for (row_idx = 4; row_idx >= 0; row_idx = row_idx - 1) begin
-                            if (aliens_alive_flat[row_idx*11 + col_idx]) begin
-                                found = row_idx;
-                            end
-                        end
-                    end
-            end
-
-            // fallback: implement column search without 'disable' (portable)
-            if (lfsr[0]) begin
-                col_idx = lfsr[3:0];
-                if (col_idx < 11) begin
-                    found = -1;
-                    for (row_idx = 4; row_idx >= 0; row_idx = row_idx - 1) begin
-                        if (aliens_alive_flat[row_idx*11 + col_idx]) begin
-                            found = row_idx;
-                        end
-                    end
-                    if (found != -1) begin
-                        // allocate into first free alien laser slot
-                        allocated = 1'b0;
-                        for (free_idx = 0; free_idx < NUM_ALIEN_LASERS; free_idx = free_idx + 1) begin
-                            if (!allocated && !alien_lactive[free_idx]) begin
-                                // compute spawn coordinates (mid-bottom of alien sprite)
-                                alien_lactive[free_idx] <= 1'b1;
-                                alien_lx[free_idx] <= alien_x + col_idx*(ALIEN_WIDTH + X_SPACING) + (ALIEN_WIDTH >> 1);
-                                alien_ly[free_idx] <= alien_y + found*(ALIEN_HEIGHT + Y_SPACING) + ALIEN_HEIGHT;
-                                allocated = 1'b1;
-                            end
-                        end
-                    end
-                end
-            end
-
             // Move alien lasers
             for (ii = 0; ii < NUM_ALIEN_LASERS; ii = ii + 1) begin
                 if (alien_lactive[ii]) begin
@@ -321,37 +247,6 @@ module game_logic(
                         alien_lactive[ii] <= 1'b0;
                     end
                 end
-            end
-
-            // Reset detection (hold top + mid buttons for RESET_HOLD_CLKS cycles)
-            if (top_button && mid_button) begin
-                if (reset_hold_cnt < RESET_HOLD_CLKS) reset_hold_cnt <= reset_hold_cnt + 1;
-                if (reset_hold_cnt >= RESET_HOLD_CLKS) reset_request <= 1'b1;
-            end else begin
-                reset_hold_cnt <= 0;
-                reset_request <= 1'b0;
-            end
-
-            if (reset_request) begin
-                // perform reset: clear aliens, lasers, score, damage
-                for (ii = 0; ii < 55; ii = ii + 1) aliens_alive_flat[ii] <= 1'b1;
-                for (ii = 0; ii < NUM_LASERS; ii = ii + 1) begin
-                    laser_active[ii] <= 1'b0;
-                    laser_x[ii] <= 10'd0;
-                    laser_y[ii] <= 10'd0;
-                end
-                for (ii = 0; ii < NUM_ALIEN_LASERS; ii = ii + 1) begin
-                    alien_lactive[ii] <= 1'b0;
-                    alien_lx[ii] <= 10'd0;
-                    alien_ly[ii] <= 10'd0;
-                end
-                score <= 16'd0;
-                shield_damage <= 8'd0;
-                ship_damage <= 8'd0;
-                // alien_x/alien_y and alien_dir_right are owned by GAME_LOGIC - reset handled there
-                fire_cooldown <= 0;
-                reset_done_laser <= 1'b1;
-                // state/game_over/game_win are owned by GAME_LOGIC - reset handled in slow tick
             end
 
             // Ship laser collisions and kills (moved here to centralize laser updates)
@@ -513,7 +408,7 @@ module game_logic(
         // Fire allocation moved to the laser-tick block so laser pool
         // registers are driven from a single always block (laser_tick).
 
-    // Move alien group horizontally, reverse and drop when hitting edges
+        // Move alien group horizontally, reverse and drop when hitting edges
         begin
             // determine leftmost and rightmost alive columns
             leftmost_col = -1;
@@ -552,41 +447,6 @@ module game_logic(
                         alien_y <= alien_y + (ALIEN_HEIGHT + Y_SPACING);
                     end
                 end
-            end
-        end
-
-        // Start handling: if we're in start screen, require holding top_button for START_HOLD_TICKS slow ticks
-        if (state == S_START) begin
-            if (top_button) begin
-                if (start_hold_cnt < START_HOLD_TICKS) start_hold_cnt <= start_hold_cnt + 1;
-                if (start_hold_cnt >= START_HOLD_TICKS) begin
-                    state <= S_RUNNING;
-                    start_hold_cnt <= 0;
-                end
-            end else begin
-                start_hold_cnt <= 0;
-            end
-        end
-
-        // Game over detection: aliens reached ship level or ship has been shot 3 times
-        if (state == S_RUNNING) begin
-            // check if any alien has dropped to ship_y or beyond
-            if (alien_y + GROUP_HEIGHT >= ship_y) begin
-                state <= S_GAMEOVER;
-                game_over <= 1'b1;
-            end
-            if (ship_damage >= 8'd3) begin
-                state <= S_GAMEOVER;
-                game_over <= 1'b1;
-            end
-            // win detection: no aliens alive
-            found = 0;
-            for (i = 0; i < 55; i = i + 1) begin
-                if (aliens_alive_flat[i]) found = 1;
-            end
-            if (!found) begin
-                state <= S_WIN;
-                game_win <= 1'b1;
             end
         end
 
@@ -630,7 +490,3 @@ endmodule
 
 
 
-// TODOs
-// add start condition (hold top button during start page), reset button (game logic an the top 
-// file), and end condition (show end game sprite if lose [aliens reach the ship or if ship is 
-// shot 3 times] and win sprite if all aliens are killed).

@@ -53,7 +53,7 @@ module vga_top(
 	display_controller dc(.clk(ClkPort), .hSync(hSync), .vSync(vSync), .bright(bright), .hCount(hc), .vCount(vc));
 	// Map BtnU -> btnA (move left), BtnC -> btnB (move right); pressing both will fire.
 	// changing this to be the middle button or top button being clicked will fire
-	vga_bitchange vbc(.clk(ClkPort), .bright(bright), .hCount(hc), .vCount(vc), .left_button(BtnL), .right_button(BtnR), .fire_button(combined_fire), .top_button(BtnU), .mid_button(BtnC), .rgb(rgb), .score(score));
+	vga_bitchange vbc(.clk(ClkPort), .bright(bright), .hCount(hc), .vCount(vc), .left_button(BtnL), .right_button(BtnR), .fire_button(combined_fire), .rgb(rgb), .score(score));
 	counter cnt(.clk(ClkPort), .displayNumber(score), .anode(anode), .ssdOut(ssdOut));
 	
 	assign Dp = 1;
