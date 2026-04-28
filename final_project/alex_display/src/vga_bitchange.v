@@ -328,16 +328,14 @@ module vga_bitchange(
 				if (vCount >= 200 && vCount <= 314) rgb = GREEN;
 			end else begin
 				// aliens, shields, ship
-				if (alien_present_delayed && alien_color_data != TRANSPARENT) begin
-					// Real sprite pixel — use the ROM color
-					rgb = alien_color_data;
-				end else if (alien_present_delayed) begin
-					// Transparent sprite pixel — show background
-					rgb = BLACK;
+				if (alien_present_delayed && alien_color_data != BLACK) 
+				begin
+				/* Real sprite pixel — use the ROM color */
+				rgb = alien_color_data;
 				end
 
-			if (shield_present) rgb = GREEN;
-			if (ship_present) rgb = GREEN;
+				if (ship_present) rgb = GREEN;
+			end
 		
 		// These are, in general, the real corners of display:
 		// x in [144, 783] & y in [35, 514]
