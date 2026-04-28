@@ -296,6 +296,8 @@ module vga_bitchange(
 			// default background
 			rgb = BLACK;
 
+			if (shield_present) rgb = GREEN;
+
 			// ship lasers (white)
 			for (li = 0; li < 8; li = li + 1) begin
 				lx = ship_laser_x_flat[li*10 +: 10];
@@ -334,9 +336,8 @@ module vga_bitchange(
 					rgb = BLACK;
 				end
 
-				if (shield_present) rgb = GREEN;
-				if (ship_present) rgb = GREEN;
-			end
+			if (shield_present) rgb = GREEN;
+			if (ship_present) rgb = GREEN;
 		
 		// These are, in general, the real corners of display:
 		// x in [144, 783] & y in [35, 514]
