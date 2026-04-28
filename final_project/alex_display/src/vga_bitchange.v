@@ -350,16 +350,13 @@ module vga_bitchange(
 			end
 
 			// aliens, shields, ship
-			if (alien_present_delayed && alien_color_data != TRANSPARENT) 
+			if (alien_present_delayed  &&  alien_color_data != BLACK) 
 			begin
 			/* Real sprite pixel — use the ROM color */
 			rgb = alien_color_data;
 			end
-			else if (alien_present_delayed) 
-			begin
-			/* Transparent sprite pixel — show background */
-			rgb = BLACK;
-			end
+
+			
 
 			if (shield_present) rgb = GREEN;
 			if (ship_present) rgb = GREEN;
